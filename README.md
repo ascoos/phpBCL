@@ -21,12 +21,15 @@ These is PHP Backwards Compatibility Library (phpBCL).
 ## CORE Classes and Functions Compatibilities
 | < PHP Ver |     Classes - Functions      | Description 
 | --------- | ---------------------------- | -------------------------
+|   7.3.0   | [F] array_key_first          | Get the first key of the given array without affecting the internal array pointer.
+|   7.3.0   | [F] array_key_last           | Get the last key of the given array without affecting the internal array pointer.
 |   7.4.0   | [F] password_algos           | Get available password hashing algorithm IDs
 |   8.0.0   | [F] str_contains             | Determine if a string contains a given substring
 |   8.0.0   | [F] str_ends_with            | Checks if a string ends with a given substring
 |   8.0.0   | [F] str_starts_with          | Checks if a string starts with a given substring
 |   8.0.0   | [I] Stringable               | The Stringable interface denotes a class as having a __toString() method
 |   8.0.0   | [C] PhpToken                 | This class provides an alternative to token_get_all().
+|   8.0.0   | [C] ValueError               | A ValueError is thrown when the type of an argument is correct but the value of it is incorrect.
 |   8.1.0   | [F] array_is_list            | Checks whether a given array is a list
 |   8.3.0   | [F] json_validate            | Validate an string if contains a valid json.
 
