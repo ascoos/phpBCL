@@ -2,4 +2,4 @@
 
 ## 0.0.1
 
-- Creating Copmpatibilities
+- Creating Compatibilities
