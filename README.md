@@ -21,6 +21,8 @@ These is PHP Backwards Compatibility Library (phpBCL).
 ## CORE Classes and Functions Compatibilities
 | < PHP Ver |     Classes - Functions      | Description 
 | --------- | ---------------------------- | -------------------------
+|   7.1.0   | [F] is_iterable              | Verify that the contents of a variable is an iterable value 
+|   7.3.0   | [F] is_countable             | Verify that the contents of a variable is a countable value 
 |   7.3.0   | [F] array_key_first          | Get the first key of the given array without affecting the internal array pointer.
 |   7.3.0   | [F] array_key_last           | Get the last key of the given array without affecting the internal array pointer.
 |   7.4.0   | [F] password_algos           | Get available password hashing algorithm IDs
