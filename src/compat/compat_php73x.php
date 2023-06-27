@@ -92,4 +92,25 @@ if (!function_exists('array_key_last'))
 
 
 
+/**
+ * If the function [ is_countable ] does not exist then we create it.
+ * ++ 7.3.0  ---- https://www.php.net/manual/en/function.is-countable.php
+ */
+if (!function_exists('is_countable')) {
+    /**
+     * Verify that the contents of a variable is a countable value 
+     * 
+     * Verify that the contents of a variable is an array or an object implementing Countable 
+     * 
+     * @link https://www.php.net/manual/en/function.is-countable.php
+     * 
+     * @param mixed $value    The value to check
+     * 
+     * @return bool    Returns true if value is countable, false otherwise.
+     */
+    function  is_countable(mixed $value): bool {
+        return is_array($value) || (is_object($value) && ($value instanceof Countable || $value instanceof ResourceBundle || $value instanceof SimpleXmlElement || $value instanceof ArrayIterator));         
+    }
+}
+
 ?>
