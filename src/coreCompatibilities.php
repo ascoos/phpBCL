@@ -51,8 +51,9 @@ $rootCompatPath = str_replace('/phpBCL', '',str_replace('\\', '/', dirname(__FIL
 /*********
  *  7.x
  ********/
+if (phpversion() < "7.1.0") require_once($rootCompatPath."/phpBCL/compat/compat_php71x.php");
 if (phpversion() < "7.3.0") require_once($rootCompatPath."/phpBCL/compat/compat_php73x.php");
- if (phpversion() < "7.4.0") require_once($rootCompatPath."/phpBCL/compat/compat_php74x.php");
+if (phpversion() < "7.4.0") require_once($rootCompatPath."/phpBCL/compat/compat_php74x.php");
 
 
 /*********
