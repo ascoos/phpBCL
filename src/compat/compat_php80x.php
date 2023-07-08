@@ -49,9 +49,22 @@ if (!function_exists('str_contains'))
    * @param string $needle    : The substring to search for in the haystack.
    * @return bool             : Returns true if needle is in haystack, false otherwise.
    */
-  function str_contains(string $haystack, string $needle): bool
+  function str_contains($haystack, $needle)
   {
-    if (!is_string($haystack) || !is_string($needle)) return false;
+    $errors = array(
+      'str_contains(): expects parameter 1 to be string, '.gettype($haystack).' given',
+      'str_contains(): expects parameter 2 to be string, '.gettype($needle).' given'
+    );
+
+    if (!is_string($haystack)) {
+      trigger_error($errors[0], E_USER_WARNING);
+      return false;
+    } 
+    
+    if(!is_string($needle)) {
+      trigger_error($errors[1], E_USER_WARNING);
+      return false;
+    }
 
     return $needle !== '' && mb_strpos($haystack, $needle) !== false;
   }
@@ -74,9 +87,22 @@ if (!function_exists('str_ends_with'))
    * @param string $needle    : The substring to search for in the haystack.
    * @return bool             : Returns true if haystack ends with needle, false otherwise.
    */
-  function  str_ends_with(string $haystack, string $needle): bool
+  function  str_ends_with($haystack, $needle)
   {
-    if (!is_string($haystack) || !is_string($needle)) return false;
+    $errors = array(
+      'str_contains(): expects parameter 1 to be string, '.gettype($haystack).' given',
+      'str_contains(): expects parameter 2 to be string, '.gettype($needle).' given'
+    );
+
+    if (!is_string($haystack)) {
+      trigger_error($errors[0], E_USER_WARNING);
+      return false;
+    } 
+    
+    if(!is_string($needle)) {
+      trigger_error($errors[1], E_USER_WARNING);
+      return false;
+    }
 
     $nlen = strlen($needle);
     return ($nlen === 0 || 0 === substr_compare($haystack, $needle, - $nlen));
@@ -100,9 +126,22 @@ if (!function_exists('str_starts_with'))
    * @param string $needle    : The substring to search for in the haystack.
    * @return bool             : Returns true if haystack begins with needle, false otherwise.
    */
-  function  str_starts_with(string $haystack, string $needle): bool
+  function  str_starts_with($haystack, $needle)
   {
-    if (!is_string($haystack) || !is_string($needle)) return false;
+    $errors = array(
+      'str_contains(): expects parameter 1 to be string, '.gettype($haystack).' given',
+      'str_contains(): expects parameter 2 to be string, '.gettype($needle).' given'
+    );
+
+    if (!is_string($haystack)) {
+      trigger_error($errors[0], E_USER_WARNING);
+      return false;
+    } 
+    
+    if(!is_string($needle)) {
+      trigger_error($errors[1], E_USER_WARNING);
+      return false;
+    }
 
     $nlen = strlen($needle);
     return ($nlen === 0 || 0 === strncmp($haystack, $needle, $nlen));
@@ -122,7 +161,7 @@ if (!class_exists('Stringable'))
 
   interface Stringable {
     /* Methods */
-    public function __toString(): string;
+    public function __toString();
   }
 
 }
@@ -139,16 +178,16 @@ if (!class_exists('PhpToken'))
   class PhpToken implements Stringable {
     /* Properties */
     /** @property int $id        One of the T_* constants, or an integer < 256 representing a single-char token.  */
-    public int $id;
+    public $id;
 
     /** @property string $text   The textual content of the token.  */
-    public string $text;
+    public $text;
 
     /** @property int $line       The starting line number (1-based) of the token. */    
-    public int $line;
+    public $line;
 
     /** @property int $pos        The starting position (0-based) in the tokenized string. */
-    public int $pos;
+    public $pos;
 
 
 
@@ -166,7 +205,7 @@ if (!class_exists('PhpToken'))
      * @return  object            Returns a new PhpToken object
 
      */
-    final public function __construct(int $id, string $text, int $line = -1, int $pos = -1)  {
+    final public function __construct($id, $text, $line = -1, $pos = -1)  {
       $this->id = $id;
       $this->text = $text;
       $this->line = $line;
@@ -195,7 +234,7 @@ if (!class_exists('PhpToken'))
      * In this case custom token IDs are used, so they should be handled gracefully. 
      * 
      */
-    public function getTokenName(): ?string {
+    public function getTokenName() {
       if ($this->id < 256) {
         return chr($this->id);
       } elseif ('UNKNOWN' !== $name = token_name($this->id)) {
@@ -226,8 +265,13 @@ if (!class_exists('PhpToken'))
      * 
      * Whether the token has the given ID, the given text, or has an ID/text part of the given array.
      */
-    public function is(int|string|array  $kind): bool
+    public function is($kind)
     {
+      $errors = array(
+        'Kind array must have elements of type int or string',
+        '"Kind must be of type int, string or array'
+      );
+
       if (is_array($kind)) {
         foreach ($kind as $singleKind) {
           if (is_string($singleKind)) {
@@ -239,7 +283,9 @@ if (!class_exists('PhpToken'))
               return true;
             }
           } else {
-            throw new TypeError("Kind array must have elements of type int or string");
+            trigger_error($errors[0], E_USER_WARNING);
+            return false;
+            //throw new TypeError("Kind array must have elements of type int or string");
           }
         }
         return false;
@@ -248,7 +294,9 @@ if (!class_exists('PhpToken'))
       } else if (is_int($kind)) {
         return $this->id === $kind;
       } else {
-        throw new TypeError("Kind must be of type int, string or array");
+        trigger_error($errors[0], E_USER_WARNING);
+        return false;
+        //throw new TypeError("Kind must be of type int, string or array");
       }
     }
 
@@ -269,7 +317,7 @@ if (!class_exists('PhpToken'))
      * As a special case, it is very common that whitespace and comments need to be skipped during token processing. 
      * The isIgnorable() method determines whether a token is ignored by the PHP parser. 
      */
-    public function isIgnorable(): bool 
+    public function isIgnorable()
     {
       return $this->is([
           T_WHITESPACE,
@@ -289,7 +337,7 @@ if (!class_exists('PhpToken'))
      * 
      * @return string   A textual content of the token. 
      */
-    public function __toString(): string {
+    public function __toString() {
       return $this->text;
     }
     
@@ -313,7 +361,7 @@ if (!class_exists('PhpToken'))
      * @return  array   An array of PHP tokens represented by instances of PhpToken or its descendants. 
      *                  This method returns static[] so that PhpToken can be seamlessly extended. 
      */
-    public static function tokenize(string $code, int $flags = 0): array {
+    public static function tokenize($code, $flags = 0) {
       return token_get_all($code, $flags);
     }
   }
@@ -329,7 +377,7 @@ if (!class_exists('PhpToken'))
  * If the class [ ValueError ] does not exist then we create it.
  * ++ 8.0.0  ---- https://www.php.net/manual/en/class.valueerror.php
  */
-if (!class_exists('ValueError')) {
+// if (!class_exists('ValueError')) {
 
   /**
    * A ValueError is thrown when the type of an argument is correct but the value of it is incorrect. 
@@ -339,7 +387,7 @@ if (!class_exists('ValueError')) {
    * @link  https://www.php.net/manual/en/class.valueerror.php
    * 
    */
-  class ValueError extends Error {}
-}   
+//  class ValueError extends Error {}
+//}   
 
 ?>

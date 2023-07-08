@@ -47,12 +47,12 @@ if (!function_exists('password_algos'))
    * 
    * @return array    Returns the available password hashing algorithm IDs.
    */
-  function password_algos(): array
+  function password_algos()
   {
       $algos = [PASSWORD_BCRYPT];
       defined('PASSWORD_ARGON2I')  && $algos[] = PASSWORD_ARGON2I;
       defined('PASSWORD_ARGON2ID') && $algos[] = PASSWORD_ARGON2ID;
-      return $algos;
+      return (array) $algos;
   }
 }
 

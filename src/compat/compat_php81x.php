@@ -50,9 +50,48 @@ if (!function_exists('array_is_list'))
    * @param   array $array: The array being evaluated.
    * @return  bool    Returns true if array is a list, false otherwise.
    */
-  function array_is_list(array $array): bool
+  function array_is_list($array)
   {
-    return $array === [] || (array_keys($array) === range(0, count($array) - 1));
+    $errors = array(
+      'array_is_list(): expects parameter 1 to be array, '.gettype($array).' given',
+      'array_is_list(): The array does not start at 0',
+      'array_is_list(): Non-integer keys',
+      'array_is_list(): Non-consecutive keys'
+    );
+
+    /******************
+     * Check for Errors
+     *****************/ 
+    // If it is not an array, it returns a string with the error and the value False.
+     if (!is_array($array)) {
+      trigger_error($errors[0], E_USER_WARNING);
+      return false;
+    }
+
+    // If the array is empty, return True
+    if ($array === []) return true;
+
+    // If the first key is greater than 0, it returns a string with the error and the value False.
+    if (array_key_first($array) !== 0) {
+      trigger_error($errors[1], E_USER_WARNING);
+      return false;      
+    }
+
+    $i = 0;
+    foreach ($array as $k => $v) {
+      // Non-integer keys
+      if (!is_int($k)) {
+        trigger_error($errors[2], E_USER_WARNING);
+        return false;
+      }
+
+      // Non-consecutive keys
+      if ($k !== $i++) {
+        trigger_error($errors[3], E_USER_WARNING);
+        return false;
+      }      
+    }
+    return true;
   }
 }
 ?>

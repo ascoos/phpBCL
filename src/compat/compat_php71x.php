@@ -49,7 +49,7 @@ if ( !function_exists('is_iterable'))
      * 
      * @return bool    Returns true if value is iterable, false otherwise. 
      */
-    function  is_iterable(mixed $value): bool
+    function  is_iterable($value)
     {
         return is_array( $value ) || ( is_object( $value ) && ( $value instanceof \Traversable || $value instanceof ArrayIterator) );
     }

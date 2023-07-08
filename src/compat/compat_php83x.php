@@ -54,14 +54,21 @@ if (!function_exists('json_validate'))
    * @return bool   Returns true if the string passed contains a valid json, otherwise returns false. 
    * 
    */
-    function json_validate(string $json, int $depth = 512, int $flags = 0): bool {
+    function json_validate($json, $depth = 512, $flags = 0) {
+        $errors = array(
+            'json_validate(): Argument #3 ($flags) must be a valid flag (allowed flags: JSON_INVALID_UTF8_IGNORE)',
+            'json_validate(): Argument #2 ($depth) must be greater than 0'
+        );
+
         if (is_string($json) && $json !== '') {
-            if ($flags !== 0 && $flags !== \JSON_INVALID_UTF8_IGNORE) {  
-                throw new ValueError('json_validate(): Argument #3 ($flags) must be a valid flag (allowed flags: JSON_INVALID_UTF8_IGNORE)');  
+            if ($flags !== 0 && $flags !== \JSON_INVALID_UTF8_IGNORE) {
+                trigger_error($errors[0], E_USER_WARNING);  
+                // throw new ValueError('json_validate(): Argument #3 ($flags) must be a valid flag (allowed flags: JSON_INVALID_UTF8_IGNORE)');  
             }  
               
-            if ($depth <= 0 ) {  
-                throw new ValueError('json_validate(): Argument #2 ($depth) must be greater than 0');  
+            if ($depth <= 0 ) { 
+                trigger_error($errors[1], E_USER_WARNING);   
+                // throw new ValueError('json_validate(): Argument #2 ($depth) must be greater than 0');  
             }
             
             @json_decode($json, null, $depth, $flags);

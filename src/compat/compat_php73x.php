@@ -81,16 +81,34 @@ if (!function_exists('array_key_first'))
    * 
    * @return int|string|null   Returns the first key of array if the array is not empty; null otherwise.
    */
-  function  array_key_first(array $array)
+  function  array_key_first($array)
   {
+    $errors = array(
+        'array_key_first(): expects parameter 1 to be array, '.gettype($array).' given',
+        'array_key_first(): Parameter 1 cannot be empty'
+    );
+
+    /******************
+     * Check for Errors
+     *****************/ 
+    if (!is_array($array)) {
+        trigger_error($errors[0], E_USER_WARNING);
+        return null;
+    }  
+
+
     if (!empty($array)) {
         foreach($array as $key => $unused) {
             return $key;
         }
+    } else {
+        trigger_error($errors[1], E_USER_WARNING);
+        return null;
     }
     return null;
   }
 }
+
 
 
 /**
@@ -110,11 +128,28 @@ if (!function_exists('array_key_last'))
      * 
      * @return int|string|null    Returns the last key of array if the array is not empty; null otherwise. 
      */
-    function array_key_last(array $array) {
+    function array_key_last($array) 
+    {
+        $errors = array(
+            'array_key_last(): expects parameter 1 to be array, '.gettype($array).' given',
+            'array_key_last(): Parameter 1 cannot be empty'
+        );
+
+        /******************
+         * Check for Errors
+         *****************/ 
+        if (!is_array($array)) {
+            trigger_error($errors[0], E_USER_WARNING);
+            return null;
+        }          
+
         if( !empty($array) ) {
             return key(array_slice($array, -1, 1, true));
-        }
-        return null;
+        } else {
+            trigger_error($errors[1], E_USER_WARNING);
+            return null;
+        }        
+        //return null;
     }
 }
 
@@ -136,8 +171,9 @@ if (!function_exists('is_countable')) {
      * 
      * @return bool    Returns true if value is countable, false otherwise.
      */
-    function  is_countable(mixed $value): bool {
-        return is_array($value) || (is_object($value) && ($value instanceof Countable || $value instanceof ResourceBundle || $value instanceof SimpleXmlElement || $value instanceof ArrayIterator));         
+    function  is_countable($value) 
+    {
+        return is_array($value) || (is_object($value) && ($value instanceof Countable || $value instanceof ResourceBundle || $value instanceof SimpleXmlElement || $value instanceof ArrayIterator));
     }
 }
 

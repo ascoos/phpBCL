@@ -71,7 +71,7 @@ if (!function_exists('each'))
    *                              Elements 0 and key contain the key name of the array element, and 1 and value contain the data.
    *                              If the internal pointer for the array points past the end of the array contents, each() returns false. 
    */
-  function each(array|object &$array): array
+  function each(&$array)
   {
     $arr = (is_object($array)) ? (array) $array : $array;
     if (!is_array($arr)) return [];
