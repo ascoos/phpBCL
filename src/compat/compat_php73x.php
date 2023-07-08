@@ -1,40 +1,68 @@
 <?php
 /**
- *
  *   __ _  ___  ___ ___   ___   ___     ____ _ __ ___   ___
  *  / _` |/  / / __/ _ \ / _ \ /  /    / __/| '_ ` _ \ /  /
  * | (_| |\  \| (_| (_) | (_) |\  \   | (__ | | | | | |\  \
  *  \__,_|/__/ \___\___/ \___/ /__/    \___\|_| |_| |_|/__/
  * 
  * 
- ********************************************************************
- * @ Project ASCOOS                                                 *
- * @ Copyright (C) 2007 - 2023 AlexSoft Software.                   *
- * @ Creator: Drogidis Christos                                     *
- * @ ASCOOS CMS Site: www.ascoos.com                                *
- * @ Creator Site: www.alexsoft.gr                                  *
- * @ email: support@ascoos.com                                      *
- * @ license site: http://docs.ascoos.com/lics/ascoos/AGL.html      *
- * @ Copyrighted Commercial Software                                *
- * @ Program ASCOOS CMS Manager                                     *
- ********************************************************************
+ *************************************************************************************
+ * @ASCOOS-NAME        : ASCOOS CMS 24'                                              *
+ * @ASCOOS-VERSION     : 24.0.0                                                      *
+ * @ASCOOS-CATEGORY    : Kernel (Frontend and Administration Side)                   *
+ * @ASCOOS-CREATOR     : Drogidis Christos                                           *
+ * @ASCOOS-SITE        : www.ascoos.com                                              *
+ * @ASCOOS-LICENSE     : [Commercial] http://docs.ascoos.com/lics/ascoos/AGL-F.html  *
+ * @ASCOOS-COPYRIGHT   : Copyright (c) 2007 - 2023, AlexSoft Software.               *
+ *************************************************************************************
  *
- * @ Package           : ASCOOS CMS - phpBCL
- * @ Subpackage        : Core Compatibilities Manager for PHP < 7.3.0
- * @ ASCOOS Version    : Ten - 1.0.0
- * @ File Name         : /phpBCL/compat/compat_php73x.php
- * @ File No.          : ?? - $release: 1.0 - revision: 0 - build 0
- * @ Created Date      : 2023-06-26 07:00:00 UTC+3
- * @ Updated Date      : 
- * @ Author            : Drogidis Christos
- * @ Author email      : webmaster@alexsoft.gr
- * @ Author website    : www.alexsoft.gr
- *
+ * @package            : ASCOOS CMS - phpBCL
+ * @subpackage         : Core Compatibilities Manager for PHP < 7.3.0
+ * @source             : /phpBCL/src/compat/compat_php73x.php
+ * @version            : **** - $release: 1.0 - $revision: 1 - $build: ****
+ * @created            : 2021-12-07 01:20:00 UTC+3
+ * @updated            : 2023-07-07 07:00:00 UTC+3
+ * @author             : Drogidis Christos
+ * @authorSite         : www.alexsoft.gr
  */
 
 
 // Run on ASCOOS CMS only. Marked as comment if you want run this script with other cms.
 defined ("ALEXSOFT_RUN_CMS") or die("Prohibition of Access.");
+
+
+/**
+ * ++ 7.3.0     Performs a full case fold conversion which removes case distinctions present in the string. 
+ *              This is used for caseless matching. This may change the length of the string. Available since PHP 7.3.
+ */
+if (!defined('MB_CASE_FOLD')) define('MB_CASE_FOLD', 3);
+
+
+/**
+ * ++ 7.3.0     Performs simple upper-case fold conversion. This does not change the length of the string. Available as of PHP 7.3. 
+ */
+if (!defined('MB_CASE_UPPER_SIMPLE')) define('MB_CASE_UPPER_SIMPLE', 4);
+
+
+/**
+ * ++ 7.3.0     Performs a simple lower-case fold conversion. This does not change the length of the string. Available as of PHP 7.3.
+ */
+if (!defined('MB_CASE_LOWER_SIMPLE')) define('MB_CASE_LOWER_SIMPLE', 5);
+
+
+/**
+ * ++ 7.3.0     Performs simple title-case fold conversion. This does not change the length of the string. Available as of PHP 7.3.
+ */
+if (!defined('MB_CASE_TITLE_SIMPLE')) define('MB_CASE_TITLE_SIMPLE', 6);
+
+
+/**
+ * ++ 7.3.0     Performs a simple case fold conversion which removes case distinctions present in the string. 
+ *              This is used for caseless matching. This does not change the length of the string. 
+ *              Used by case-insensitive operations internally by the MBString extension. Available as of PHP 7.3.  
+ */
+if (!defined('MB_CASE_FOLD_SIMPLE')) define('MB_CASE_FOLD_SIMPLE', 7);
+
 
 
 
