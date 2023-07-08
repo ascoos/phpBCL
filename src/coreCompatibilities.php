@@ -30,56 +30,49 @@
 defined ("ALEXSOFT_RUN_CMS") or die("Prohibition of Access.");
 
 
-// We take the central path of the CMS and at the same time fix the path if it is on Windows
-$rootCompatPath = str_replace('/phpBCL/src', '',str_replace('\\', '/', dirname(__FILE__)));
-
-
 /*********
  *  4.x
  ********/
-if (phpversion() < "4.3.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php43x.php");
+if (phpversion() < "4.3.0") require_once($cms_path."/phpBCL/src/compat/compat_php43x.php");
 
 
 /*********
  *  5.x
  ********/
-//if (phpversion() < "5.0.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php50x.php");
-//if (phpversion() < "5.1.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php51x.php");
-//if (phpversion() < "5.2.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php52x.php");
-//if (phpversion() < "5.3.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php53x.php");
-//if (phpversion() < "5.4.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php54x.php");
- if (phpversion() < "5.5.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php55x.php");
- //if (phpversion() < "5.6.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php56x.php");
+if (phpversion() < "5.5.0") require_once($cms_path."/phpBCL/src/compat/compat_php55x.php");
+
 
 
 /*********
  *  7.x
  ********/
-//if (phpversion() < "7.0.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php70x.php");
-if (phpversion() < "7.1.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php71x.php");
-if (phpversion() < "7.3.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php73x.php");
-if (phpversion() < "7.4.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php74x.php");
+//if (phpversion() < "7.0.0") require_once($cms_path."/phpBCL/src/compat/compat_php70x.php");
+
+if (phpversion() < "7.1.0") require_once($cms_path."/phpBCL/src/compat/compat_php71x.php");
+if (phpversion() < "7.3.0") require_once($cms_path."/phpBCL/src/compat/compat_php73x.php");
+if (phpversion() < "7.4.0") require_once($cms_path."/phpBCL/src/compat/compat_php74x.php");
 
 
 /*********
  *  8.x
  ********/
-if (phpversion() < "8.0.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php80x.php");
-if (phpversion() < "8.1.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php81x.php");
-//if (phpversion() < "8.2.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php82x.php");
-if (phpversion() < "8.3.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php83x.php");
+if (phpversion() < "8.0.0") require_once($cms_path."/phpBCL/src/compat/compat_php80x.php");
+if (phpversion() < "8.1.0") require_once($cms_path."/phpBCL/src/compat/compat_php81x.php");
+
+//if (phpversion() < "8.2.0") require_once($cms_path."/phpBCL/src/compat/compat_php82x.php");
+if (phpversion() < "8.3.0") require_once($cms_path."/phpBCL/src/compat/compat_php83x.php");
 
 
 /*************************
  * DEPRECATED OR REMOVED
  ************************/
-require_once($rootCompatPath."/phpBCL/src/compat/compat_deprecated.php");
+require_once($cms_path."/phpBCL/src/compat/compat_deprecated.php");
 
 
 /*******************************
  * SIMILAR CODE -- COMING SOON
  ******************************/
-require_once($rootCompatPath."/phpBCL/src/compat/compat_similar.php");
+require_once($cms_path."/phpBCL/src/compat/compat_similar.php");
 
-unset($rootCompatPath);
+//unset($cms_path);
 ?>
