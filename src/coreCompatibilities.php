@@ -1,79 +1,85 @@
 <?php
 /**
- *
  *   __ _  ___  ___ ___   ___   ___     ____ _ __ ___   ___
  *  / _` |/  / / __/ _ \ / _ \ /  /    / __/| '_ ` _ \ /  /
  * | (_| |\  \| (_| (_) | (_) |\  \   | (__ | | | | | |\  \
  *  \__,_|/__/ \___\___/ \___/ /__/    \___\|_| |_| |_|/__/
  * 
  * 
- ********************************************************************
- * @ Project ASCOOS                                                 *
- * @ Copyright (C) 2007 - 2023 AlexSoft Software.                   *
- * @ Creator: Drogidis Christos                                     *
- * @ ASCOOS CMS Site: www.ascoos.com                                *
- * @ Creator Site: www.alexsoft.gr                                  *
- * @ email: support@ascoos.com                                      *
- * @ license site: http://docs.ascoos.com/lics/ascoos/AGL.html      *
- * @ Copyrighted Commercial Software                                *
- * @ Program ASCOOS CMS Manager                                     *
- ********************************************************************
+ *************************************************************************************
+ * @ASCOOS-NAME        : ASCOOS CMS 24'                                              *
+ * @ASCOOS-VERSION     : 24.0.0                                                      *
+ * @ASCOOS-CATEGORY    : Kernel (Frontend and Administration Side)                   *
+ * @ASCOOS-CREATOR     : Drogidis Christos                                           *
+ * @ASCOOS-SITE        : www.ascoos.com                                              *
+ * @ASCOOS-LICENSE     : [Commercial] http://docs.ascoos.com/lics/ascoos/AGL-F.html  *
+ * @ASCOOS-COPYRIGHT   : Copyright (c) 2007 - 2023, AlexSoft Software.               *
+ *************************************************************************************
  *
- * @ Package           : ASCOOS CMS - phpBCL
- * @ Subpackage        : Core Compatibilities Manager
- * @ ASCOOS Version    : Ten - 1.0.0
- * @ File Name         : /phpBCL/coreCompatibilities.php
- * @ File No.          : ??? - $release: 1.0 - $revision: 0 - $build 0
- * @ Created Date      : 2013-12-31 23:59:59 GMT+2
- * @ Updated Date      : 2023-06-22 07:00:00 UTC+3
- * @ Author            : Drogidis Christos
- * @ Author email      : webmaster@alexsoft.gr
- * @ Author website    : www.alexsoft.gr
- *
+ * @package            : ASCOOS CMS - phpBCL
+ * @subpackage         : Core Class - Compatibilities Main Handler file
+ * @source             : /phpBCL/coreCompatibilities.php
+ * @version            : **** - $release: 1.0 - $revision: 2 - $build: ****
+ * @created            : 2013-12-31 23:59:59 GMT+2
+ * @updated            : 2023-07-07 07:00:00 UTC+3
+ * @author             : Drogidis Christos
+ * @authorSite         : www.alexsoft.gr
  */
 
 // Run on ASCOOS CMS only. Marked as comment if you want run this script with other cms.
 defined ("ALEXSOFT_RUN_CMS") or die("Prohibition of Access.");
 
 
-
 // We take the central path of the CMS and at the same time fix the path if it is on Windows
-$rootCompatPath = str_replace('/phpBCL', '',str_replace('\\', '/', dirname(__FILE__)));
+$rootCompatPath = str_replace('/phpBCL/src', '',str_replace('\\', '/', dirname(__FILE__)));
 
+
+/*********
+ *  4.x
+ ********/
+if (phpversion() < "4.3.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php43x.php");
 
 
 /*********
  *  5.x
  ********/
-//if (phpversion() < "5.6.0") require_once($rootCompatPath."/phpBCL/compat/compat_php56x.php");
+//if (phpversion() < "5.0.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php50x.php");
+//if (phpversion() < "5.1.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php51x.php");
+//if (phpversion() < "5.2.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php52x.php");
+//if (phpversion() < "5.3.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php53x.php");
+//if (phpversion() < "5.4.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php54x.php");
+ if (phpversion() < "5.5.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php55x.php");
+ //if (phpversion() < "5.6.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php56x.php");
 
 
 /*********
  *  7.x
  ********/
-if (phpversion() < "7.1.0") require_once($rootCompatPath."/phpBCL/compat/compat_php71x.php");
-if (phpversion() < "7.3.0") require_once($rootCompatPath."/phpBCL/compat/compat_php73x.php");
-if (phpversion() < "7.4.0") require_once($rootCompatPath."/phpBCL/compat/compat_php74x.php");
+//if (phpversion() < "7.0.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php70x.php");
+if (phpversion() < "7.1.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php71x.php");
+if (phpversion() < "7.3.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php73x.php");
+if (phpversion() < "7.4.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php74x.php");
 
 
 /*********
  *  8.x
  ********/
-if (phpversion() < "8.0.0") require_once($rootCompatPath."/phpBCL/compat/compat_php80x.php");
-if (phpversion() < "8.1.0") require_once($rootCompatPath."/phpBCL/compat/compat_php81x.php");
-//if (phpversion() < "8.2.0") require_once($rootCompatPath."/phpBCL/compat/compat_php82x.php");
-if (phpversion() < "8.3.0") require_once($rootCompatPath."/phpBCL/compat/compat_php83x.php");
+if (phpversion() < "8.0.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php80x.php");
+if (phpversion() < "8.1.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php81x.php");
+//if (phpversion() < "8.2.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php82x.php");
+if (phpversion() < "8.3.0") require_once($rootCompatPath."/phpBCL/src/compat/compat_php83x.php");
 
 
 /*************************
  * DEPRECATED OR REMOVED
  ************************/
-require_once($rootCompatPath."/phpBCL/compat/compat_deprecated.php");
+require_once($rootCompatPath."/phpBCL/src/compat/compat_deprecated.php");
 
-/*************************
- * SIMILAR CODE
- ************************/
-require_once($rootCompatPath."/phpBCL/compat/compat_similar.php");
+
+/*******************************
+ * SIMILAR CODE -- COMING SOON
+ ******************************/
+require_once($rootCompatPath."/phpBCL/src/compat/compat_similar.php");
 
 unset($rootCompatPath);
 ?>
