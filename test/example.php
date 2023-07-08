@@ -28,7 +28,9 @@
 
 define('ALEXSOFT_RUN_CMS', true);
 
-require_once("../src/coreCompatibilities.php");
+$cms_path = str_replace('/phpBCL/test', '',str_replace('\\', '/', __DIR__));
+ 
+require_once($cms_path."/phpBCL/src/coreCompatibilities.php");
 
 echo 'Hello!';
 
