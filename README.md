@@ -8,6 +8,49 @@ These is PHP Backwards Compatibility Library (phpBCL).
 
 ***
 
+## Contributing
+
+This is an open source project, open to anyone. 
+
+Contributions are welcome [github](https://github.com/ascoos/phpBCL)
+
+## Feedback
+
+Please send any feedback or suggestions to [@ascoos](https://twitter.com/ascoos) (Twitter) or [create an issue](https://github.com/ascoos/phpBCL/issues) on GitHub.
+
+## License
+
+[AGL-F (ASCOOS General License - Free)](http://docs.ascoos.com/lics/ascoos/AGL-F.html)
+
+***
+
+<br>
+
+## Download
+
+1. [GITHUB](https://github.com/ascoos/phpBCL/releases)
+2. [www.phpclasses.org](https://www.phpclasses.org/package/12926.html)
+
+
+<br>
+
+***
+
+<br>
+
+# Installation
+
+1. Download latest release
+1. Unzip in your working directory
+1. add [ require_once("/phpBCL/src/coreCompatibilities.php"); ] in root index.php
+1. Run your code
+
+<br>
+
+***
+
+<br>
+
 # Changelog
 
 ## 1.0.3 [2023-07-12]
@@ -15,8 +58,8 @@ These is PHP Backwards Compatibility Library (phpBCL).
 #### PHP < 8.2.0
 
 - Added Functions `mysqli_execute_query`
-- Added Interfaces `Engine`, `CryptoSafeEngine`
-- Added class `RandomError`, `Randomizer`
+- Added Interfaces `Random\Engine`, `Random\CryptoSafeEngine`
+- Added class `Random\RandomError`, `Random\Randomizer`
 
 ***
 
