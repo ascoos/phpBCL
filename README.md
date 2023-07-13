@@ -58,8 +58,6 @@ Please send any feedback or suggestions to [@ascoos](https://twitter.com/ascoos)
 #### PHP < 8.2.0
 
 - Added Functions `mysqli_execute_query`
-- Added Interfaces `Random\Engine`, `Random\CryptoSafeEngine`
-- Added class `Random\RandomError`, `Random\Randomizer`
 
 ***
 
