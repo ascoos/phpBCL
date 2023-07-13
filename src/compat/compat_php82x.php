@@ -21,7 +21,7 @@
  * @source             : /phpBCL/src/compat/compat_php82x.php
  * @version            : **** - $release: 1.0 - $revision: 3 - $build: ****
  * @created            : 2023-06-22 07:00:00 UTC+3
- * @updated            : 2023-07-11 07:00:00 UTC+3
+ * @updated            : 2023-07-12 07:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  */
@@ -31,8 +31,6 @@
 defined ("ALEXSOFT_RUN_CMS") or die("Prohibition of Access.");
 
 //include_once($cms_path."/phpBCL/src/compat/82/random.php");
-
-
 
 
 
