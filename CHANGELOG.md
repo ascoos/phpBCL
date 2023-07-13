@@ -23,7 +23,9 @@
 #### PHP < 7.3.0
 - Added Constants: `MB_CASE_FOLD`, `MB_CASE_UPPER_SIMPLE`, `MB_CASE_LOWER_SIMPLE`, `MB_CASE_TITLE_SIMPLE`, `MB_CASE_FOLD_SIMPLE`.  Used by ASCOOS LIBRARY FUNCTION `alf_mb_convert_case` (compat_similar.php)
 - Updated Functions: `array_key_first`, `array_key_last`
-- Added Similar Functions: ASCOOS LIBRARY FUNCTION `alf_mb_convert_case` For full compatible similar mb_convert_case.
+
+##### ASCOOS LIBRARY FUNCTION:  
+- Added `alf_mb_convert_case` For full compatible similar mb_convert_case.
 
 #### PHP < 7.4.0
 - Added Functions: `mb_str_split`
