@@ -5,8 +5,6 @@
 #### PHP < 8.2.0
 
 - Added Functions `mysqli_execute_query`
-- Added Interfaces `Engine`, `CryptoSafeEngine`
-- Added class `RandomError`, `Randomizer`
 
 ***
 
