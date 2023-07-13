@@ -59,7 +59,7 @@ if (phpversion() < "7.4.0") require_once($cms_path."/phpBCL/src/compat/compat_ph
 if (phpversion() < "8.0.0") require_once($cms_path."/phpBCL/src/compat/compat_php80x.php");
 if (phpversion() < "8.1.0") require_once($cms_path."/phpBCL/src/compat/compat_php81x.php");
 
-//if (phpversion() < "8.2.0") require_once($cms_path."/phpBCL/src/compat/compat_php82x.php");
+if (phpversion() < "8.2.0") require_once($cms_path."/phpBCL/src/compat/compat_php82x.php");
 if (phpversion() < "8.3.0") require_once($cms_path."/phpBCL/src/compat/compat_php83x.php");
 
 
