@@ -42,7 +42,7 @@ Please send any feedback or suggestions to [@ascoos](https://twitter.com/ascoos)
 
 1. Download latest release
 1. Unzip package in your working directory
-1. Add in index.php or configuration file the variable `$cms_path = "FULL PATH"` variable. It should contain the full path where the index.php file is located.
+1. Add in index.php or configuration file the variable `$cms_path = "FULL PATH"`. It should contain the full path where the index.php file is located.
 1. Add `require_once($cms_path."/phpBCL/src/coreCompatibilities.php");` in index.php
 1. Run your code
 
