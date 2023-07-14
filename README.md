@@ -28,8 +28,9 @@ Please send any feedback or suggestions to [@ascoos](https://twitter.com/ascoos)
 
 ## Download
 
-1. [GITHUB](https://github.com/ascoos/phpBCL/releases)
-2. [www.phpclasses.org](https://www.phpclasses.org/package/12926.html)
+1. [OFFICIAL ASCOOS DOWNLOAD SITE](https://dl.ascoos.com/pub/phpBCL/phpBCL-latest.zip)
+2. [GITHUB](https://github.com/ascoos/phpBCL/releases)
+3. [www.phpclasses.org](https://www.phpclasses.org/package/12926.html)
 
 
 <br>
