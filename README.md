@@ -1,4 +1,4 @@
-<p align="center"><img src="https://dl.ascoos.com/images/ascoos.png" height=120 /></p>
+<p align="center"><img src="https://apps.ascoos.com/phpBCL/images/phpBCL_256px.png" height=256 /></p>
 
 # PHP Backwards Compatibility Library (phpBCL)
 
