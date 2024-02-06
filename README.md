@@ -8,6 +8,10 @@ These is PHP Backwards Compatibility Library (phpBCL).
 
 ***
 
+<p align="center"><img src="https://github.com/ascoos/phpBCL/blob/main/PHPCLASSES-Certificate.png" height=256 /></p>
+
+***
+
 ## Contributing
 
 This is an open source project, open to anyone. 
