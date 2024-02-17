@@ -33,7 +33,7 @@ defined ("ALEXSOFT_RUN_CMS") or die("Prohibition of Access.");
 
 /**
  * If the function [ json_validate ] does not exist then we create it.
- * ++ 8.3.0 ---- https://wiki.php.net/rfc/json_validate
+ * ++ 8.3.0 ---- https://www.php.net/manual/en/function.json-validate
  */
 if (!function_exists('json_validate'))
 {
@@ -41,7 +41,7 @@ if (!function_exists('json_validate'))
    * 
    * DESCRIPT     : Validate an string if contains a valid json. 
    * 
-   * @link  https://wiki.php.net/rfc/json_validate
+   * @link  https://www.php.net/manual/en/function.json-validate
    * 
    * @param  string $json      The json string being analyzed. This function only works with UTF-8 encoded strings. 
    *                            Note:
@@ -84,7 +84,7 @@ if (!function_exists('json_validate'))
 
 /**
  * If the function [ mb_str_pad ] does not exist then we create it.
- * ++ 8.3.0 ---- https://wiki.php.net/rfc/mb_str_pad
+ * ++ 8.3.0 ---- https://www.php.net/manual/en/function.mb-str-pad.php
  */
 if (!function_exists('mb_str_pad'))
 {    
@@ -93,7 +93,7 @@ if (!function_exists('mb_str_pad'))
      * that utilize multibyte encodings like UTF-8. This RFC proposes the addition of such a function to PHP, 
      * which we will call mb_str_pad(). 
      * 
-     * @link https://wiki.php.net/rfc/mb_str_pad
+     * @link https://www.php.net/manual/en/function.mb-str-pad.php
      * 
      * @param string $string            The input string.
      * 
