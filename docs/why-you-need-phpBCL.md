@@ -56,3 +56,4 @@ The code written in these functions, in some cases, performs 100% of the same fu
 This is embedded in your code by calling only the coreCompatibilities.php file.
 
 The effort to develop phpBCL is dynamic and continuous, and surely the help of all users with observations, comments, improvements, and code suggestions, will help the entire PHP community to relieve an extra burden that PHP developers have placed on us.
+
