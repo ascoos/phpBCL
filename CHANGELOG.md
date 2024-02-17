@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.4 [2024-02-17]
+
+#### PHP < 8.4.0
+
+- Added Functions `mb_ucfirst`
+- Added Functions `mb_lcfirst`
+
+***
+
 ## 1.0.3 [2023-07-12]
 
 #### PHP < 8.2.0

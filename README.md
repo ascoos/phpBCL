@@ -6,6 +6,10 @@
 
 These is PHP Backwards Compatibility Library (phpBCL).
 
+***
+
+## Awards
+
 <p align="center"><img src="https://apps.ascoos.com/phpBCL/images/PHPCLASSES-Certificate.png" height=512 /></p>
 
 ***
@@ -90,6 +94,8 @@ The contents of version-based files mean that since added to a specific PHP vers
 
 | A |    PHP   | phpBCL |   TYPE    |          NAME           |                DESCRIPTION
 |---|----------|--------|-----------|-------------------------|-----------------------------------------
+| + | < 8.4.0  | 1.0.0  | Function  | `mb_ucfirst`            | Make a multibyte string's first character uppercase.
+| + | < 8.4.0  | 1.0.0  | Function  | `mb_lcfirst`            | Make a multibyte string's first character lowercase.
 | + | < 8.3.0  | 1.0.2  | Function  | `mb_str_pad`            | The str_pad() function lacks multibyte character support, causing issues when working with languages that utilize multibyte encodings like UTF-8.
 | + | < 8.3.0  | 1.0.0  | Function  | `json_validate`         | Validate an string if contains a valid json.
 | + | < 8.2.0  | 1.0.3  | Function  | `mysqli_execute_query`  | Prepares, binds parameters, and executes SQL statement
