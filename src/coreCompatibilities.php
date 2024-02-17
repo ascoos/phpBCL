@@ -21,7 +21,7 @@
  * @source             : /phpBCL/coreCompatibilities.php
  * @version            : **** - $release: 1.0 - $revision: 3 - $build: ****
  * @created            : 2013-12-31 23:59:59 GMT+2
- * @updated            : 2023-07-12 07:00:00 UTC+3
+ * @updated            : 2024-02-17 07:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  */
@@ -60,7 +60,7 @@ if (phpversion() < "8.0.0") require_once($cms_path."/phpBCL/src/compat/compat_ph
 if (phpversion() < "8.1.0") require_once($cms_path."/phpBCL/src/compat/compat_php81x.php");
 if (phpversion() < "8.2.0") require_once($cms_path."/phpBCL/src/compat/compat_php82x.php");
 if (phpversion() < "8.3.0") require_once($cms_path."/phpBCL/src/compat/compat_php83x.php");
-
+if (phpversion() < "8.4.0") require_once($cms_path."/phpBCL/src/compat/compat_php84x.php");
 
 /*************************
  * DEPRECATED OR REMOVED
