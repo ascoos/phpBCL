@@ -69,6 +69,18 @@ require_once($cms_path."/phpBCL/src/coreCompatibilities.php");
 - [-] = Removed
 
 
+## phpBCL FILE  [phpBCL.php]
+
+This file contains support code for the remaining functions of the phpBCL library.
+
+
+| A |    PHP    | phpBCL |   TYPE    |          NAME           |                DESCRIPTION
+|---|-----------|--------|-----------|-------------------------|-----------------------------------------
+| + | ALL       | 1.0.5  | FILE      | `phpBCL.php`            | To support other functions in this php library
+| + | >= 8.4.0  | 1.0.5  | Function  | `validate_encoding`     | Checks for any errors in the user's string encoding.
+
+
+
 ## DEPRECATED FILE  [compat_deprecated.php]
 
 The use of the contents of the deprecated-removed code file is the reverse of the use of other files versioning-based on the php version. 
@@ -86,7 +98,7 @@ This means that from the PHP version that refers and to newer versions, without 
 | + | >= 8.0.0  | 1.0.0  | Function  | `each`                  | Return the current key and value pair from an array and advance the array cursor.
 
 
-## VERSIONING FILES  [compat_php43x.php - compat_php84x.php]
+## VERSIONING FILES  [compat_php43x.php - compat_php83x.php]
 
 The contents of version-based files mean that since added to a specific PHP version, without using `phpBCL`, you will not be able to use them in older versions.
 
@@ -94,8 +106,11 @@ The contents of version-based files mean that since added to a specific PHP vers
 
 | A |    PHP   | phpBCL |   TYPE    |          NAME           |                DESCRIPTION
 |---|----------|--------|-----------|-------------------------|-----------------------------------------
-| + | < 8.4.0  | 1.0.4  | Function  | `mb_ucfirst`            | Make a multibyte string's first character uppercase.
-| + | < 8.4.0  | 1.0.4  | Function  | `mb_lcfirst`            | Make a multibyte string's first character lowercase.
+| + | < 8.4.0  | 1.0.5  | Function  | `mb_ltrim`              | Multi-byte safely strip white-spaces (or other characters) from the beginning of a string. 
+| + | < 8.4.0  | 1.0.5  | Function  | `mb_rtrim`              | Multi-byte safely strip white-spaces (or other characters) from the end of a string. 
+| + | < 8.4.0  | 1.0.5  | Function  | `mb_trim`               | Multi-byte safely strip white-spaces (or other characters) from the beginning and end of a string.  
+| ^ | < 8.4.0  | 1.0.5  | Function  | `mb_ucfirst`            | Make a multibyte string's first character uppercase.
+| ^ | < 8.4.0  | 1.0.5  | Function  | `mb_lcfirst`            | Make a multibyte string's first character lowercase.
 | + | < 8.3.0  | 1.0.2  | Function  | `mb_str_pad`            | The str_pad() function lacks multibyte character support, causing issues when working with languages that utilize multibyte encodings like UTF-8.
 | + | < 8.3.0  | 1.0.0  | Function  | `json_validate`         | Validate an string if contains a valid json.
 | + | < 8.2.0  | 1.0.3  | Function  | `mysqli_execute_query`  | Prepares, binds parameters, and executes SQL statement
