@@ -17,8 +17,8 @@
  *************************************************************************************
  *
  * @package            : ASCOOS CMS - phpBCL
- * @subpackage         : Example mb_ucfirst Function
- * @source             : /phpBCL/test/84__mb_trim-mb_ltrim-mb_rtrim.php
+ * @subpackage         : Example mb_trim, mb_ltrim, mb_rtrim Function
+ * @source             : /phpBCL/test/84__mb_trim.php
  * @version            : **** - $release: 1.0 - $revision: 0 - $build: ****
  * @created            : 2024-02-20 03:00:00 UTC+3
  * @updated            : 
