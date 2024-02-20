@@ -77,7 +77,7 @@ This file contains support code for the remaining functions of the phpBCL librar
 | A |    PHP    | phpBCL |   TYPE    |          NAME           |                DESCRIPTION
 |---|-----------|--------|-----------|-------------------------|-----------------------------------------
 | + | ALL       | 1.0.5  | FILE      | `phpBCL.php`            | To support other functions in this php library
-| + | >= 8.4.0  | 1.0.5  | Function  | `validate_encoding`     | Checks for any errors in the user's string encoding.
+| + | >= 5.3.0  | 1.0.5  | Function  | `validate_encoding`     | Checks for any errors in the user's string encoding.
 
 
 
