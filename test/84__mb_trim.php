@@ -18,10 +18,10 @@
  *
  * @package            : ASCOOS CMS - phpBCL
  * @subpackage         : Example mb_ucfirst Function
- * @source             : /phpBCL/test/84_mb_ucfirst.php
- * @version            : **** - $release: 1.0 - $revision: 1 - $build: ****
- * @created            : 2024-02-17 07:00:00 UTC+3
- * @updated            : 2024-02-20 03:00:00 UTC+3
+ * @source             : /phpBCL/test/84__mb_trim-mb_ltrim-mb_rtrim.php
+ * @version            : **** - $release: 1.0 - $revision: 0 - $build: ****
+ * @created            : 2024-02-20 03:00:00 UTC+3
+ * @updated            : 
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  * 
@@ -30,17 +30,20 @@
 
 define('ALEXSOFT_RUN_CMS', true);
 
-$cms_path = str_replace('/phpBCL/test', '',str_replace('\\', '/', __DIR__));
+$cms_path = str_replace('/phpBCL/test', '', str_replace('\\', '/', __DIR__));
  
 require_once($cms_path."/phpBCL/src/coreCompatibilities.php");
 
-$str1 = "The quick brown fox jumps over the lazy dog";
-$str2 = "the quick brown fox jumps over the lazy dog";
+// Example usage:
+$characters = " \f\n\r\t\v\x00\u{00A0}\u{1680}\u{2000}\u{2001}\u{2002}\u{2003}\u{2004}\u{2005}\u{2006}\u{2007}\u{2008}\u{2009}\u{200A}\u{2028}\u{2029}\u{202F}\u{205F}\u{3000}\u{0085}\u{180E}";
 
+// TEST STRING WITH MULTIBYTE CHARS
+$str = "\n \f \v \t \u{2006} Good morning world!  \t\u{2000}\u{2001}\u{2002}\f";
 
-// EXECUTE mb_ucfirst, mb_lcfirst
-$lowercaseFirst = mb_lcfirst($str1, 'UTF-8');
-$uppercaseFirst = mb_ucfirst($str2, 'UTF-8');
+// EXECUTE mb_ltrim, mb_rtrim, mb_trim
+$trimmedLeft = mb_ltrim($str, $characters, 'UTF-8');
+$trimmedRight = mb_rtrim($str, $characters, 'UTF-8');
+$trimmedBoth = mb_trim($str, $characters, 'UTF-8' );
 ?>
 <html>
 <head>
@@ -52,14 +55,13 @@ $uppercaseFirst = mb_ucfirst($str2, 'UTF-8');
 <body>
 <?php
 echo '<h1>PHP VERSION: '.phpversion().'</h1>';
-echo '<h2>TEST PHP 8.4 [ <b>mb_ucfirst & mb_lcfirst</b> ] </h2>';
-echo '<p>TEXT [1] '.$str1.'</p>'; 
-echo '<p>TEXT [2] '.$str2.'</p>'; 
+echo '<h2>TEST PHP 8.4 [ <b>mb_ltrim & mb_rtrim & mb_trim</b> ] </h2>';
+echo '<p>ORIGINAL STRING : ['.$str.']</p>'; 
 echo '<p><br></p>'; 
 
-echo '<p><b>mb_lcfirst</b> [FROM TEXT 1] '.$lowercaseFirst.'</p>';
-echo '<p><b>mb_ucfirst</b> [FROM TEXT 2] '.$uppercaseFirst.'</p>';
-echo '<p><br></p>'; 
+echo '<p>mb_ltrim [Trimmed Left]....: ['.$trimmedLeft.']</p>';
+echo '<p>mb_rtrim [Trimmed Right]...: ['.$trimmedRight.']</p>';
+echo '<p>mb_trim  [Trimmed Both]....: ['.$trimmedBoth.']</p>';
 ?>
 </body>
 </html>
