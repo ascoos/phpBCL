@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.6 [2024-02-21]
+
+- FIXED EXAMPLES
+- ADDED SCREENSHOTS
+
+***
+
 ## 1.0.5 [2024-02-20]
 
 #### PHP < 8.4.0
