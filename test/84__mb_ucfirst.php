@@ -19,13 +19,13 @@
  * @package            : ASCOOS CMS - phpBCL
  * @subpackage         : Example mb_ucfirst Function
  * @source             : /phpBCL/test/84_mb_ucfirst.php
- * @version            : **** - $release: 1.0 - $revision: 1 - $build: ****
+ * @version            : **** - $release: 1.0 - $revision: 5 - $build: ****
  * @created            : 2024-02-17 07:00:00 UTC+3
  * @updated            : 2024-02-20 03:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  * 
- * @since 1.0.5
+ * @since 5.6.40
  */
 
 define('ALEXSOFT_RUN_CMS', true);
