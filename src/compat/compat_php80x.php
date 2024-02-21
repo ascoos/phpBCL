@@ -156,7 +156,7 @@ if (!function_exists('str_starts_with'))
  * If the class [ Stringable ] does not exist then we create it.
  * ++ 8.0.0  ---- https://www.php.net/manual/en/class.stringable.php
  */
-if (!class_exists('Stringable')) 
+if (!interface_exists('Stringable')) 
 {
 
   interface Stringable {

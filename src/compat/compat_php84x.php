@@ -19,9 +19,9 @@
  * @package            : ASCOOS CMS - phpBCL
  * @subpackage         : Core Compatibilities Manager for PHP < 8.4.0
  * @source             : /phpBCL/src/compat/compat_php84x.php
- * @version            : **** - $release: 1.0 - $revision: 1 - $build: ****
+ * @version            : **** - $release: 1.0 - $revision: 6 - $build: ****
  * @created            : 2024-02-14 05:40:00 UTC+3
- * @updated            : 2024-02-20 03:00:00 UTC+3
+ * @updated            : 2024-02-21 18:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  */
@@ -187,7 +187,7 @@ if (!function_exists('mb_ltrim'))
         /************************
          * END CHECK FOR ERRORS
          ***********************/
-        
+
         $string = mb_convert_encoding($string, $encoding);
 
         //quote characters for use in a characters list
@@ -249,7 +249,6 @@ if (!function_exists('mb_rtrim'))
          * END CHECK FOR ERRORS
          ***********************/        
         
-        //$string = mb_convert_encoding($string, $encoding);
         $string = mb_convert_encoding($string, $encoding);
 
         //quote charlist for use in a characterclass
