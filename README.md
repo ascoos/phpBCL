@@ -78,6 +78,7 @@ This file contains support code for the remaining functions of the phpBCL librar
 |---|-----------|--------|-----------|-------------------------|-----------------------------------------
 | + | ALL       | 1.0.5  | FILE      | `phpBCL.php`            | To support other functions in this php library
 | + | >= 5.3.0  | 1.0.5  | Function  | `validate_encoding`     | Checks for any errors in the user's string encoding.
+| + | >= 5.3.0  | 1.0.7  | Function  | `alf_preg_quote`        | Quote regular expression characters.
 
 
 
@@ -106,9 +107,9 @@ The contents of version-based files mean that since added to a specific PHP vers
 
 | A |    PHP   | phpBCL |   TYPE    |          NAME           |                DESCRIPTION
 |---|----------|--------|-----------|-------------------------|-----------------------------------------
-| + | < 8.4.0  | 1.0.5  | Function  | `mb_ltrim`              | Multi-byte safely strip white-spaces (or other characters) from the beginning of a string. 
-| + | < 8.4.0  | 1.0.5  | Function  | `mb_rtrim`              | Multi-byte safely strip white-spaces (or other characters) from the end of a string. 
-| + | < 8.4.0  | 1.0.5  | Function  | `mb_trim`               | Multi-byte safely strip white-spaces (or other characters) from the beginning and end of a string.  
+| ^ | < 8.4.0  | 1.0.7  | Function  | `mb_ltrim`              | Multi-byte safely strip white-spaces (or other characters) from the beginning of a string. 
+| ^ | < 8.4.0  | 1.0.7  | Function  | `mb_rtrim`              | Multi-byte safely strip white-spaces (or other characters) from the end of a string. 
+| ^ | < 8.4.0  | 1.0.7  | Function  | `mb_trim`               | Multi-byte safely strip white-spaces (or other characters) from the beginning and end of a string.  
 | ^ | < 8.4.0  | 1.0.5  | Function  | `mb_ucfirst`            | Make a multibyte string's first character uppercase.
 | ^ | < 8.4.0  | 1.0.5  | Function  | `mb_lcfirst`            | Make a multibyte string's first character lowercase.
 | + | < 8.3.0  | 1.0.2  | Function  | `mb_str_pad`            | The str_pad() function lacks multibyte character support, causing issues when working with languages that utilize multibyte encodings like UTF-8.

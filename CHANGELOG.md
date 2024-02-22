@@ -1,8 +1,20 @@
 # Changelog
 
+## 1.0.7 [2024-02-22]
+
+#### PHP < 8.4.0
+
+- Added phpBCL Function `alf_preg_quote`
+- FIXED FUNCTIONS : `mb_trim`, `mb_ltrim`, `mbrtrim` for use on PHP 5.6
+- FIXED EXAMPLE   : `84__mb_trim.php`
+- ADDED SCREENSHOTS
+
+***
+
 ## 1.0.6 [2024-02-21]
 
-- FIXED EXAMPLES
+- FIXED EXAMPLE   : `81__array_is_list.php`
+- FIXED EXAMPLE   : `84_mb_ucfirst.php`
 - ADDED SCREENSHOTS
 
 ***
