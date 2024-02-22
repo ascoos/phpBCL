@@ -19,9 +19,9 @@
  * @package            : ASCOOS CMS - phpBCL
  * @subpackage         : phpBCL Native Functions
  * @source             : /phpBCL/src/phpBCL.php
- * @version            : **** - $release: 1.0 - $revision: 0 - $build: ****
+ * @version            : **** - $release: 1.0 - $revision: 7 - $build: ****
  * @created            : 2024-02-20 05:40:00 UTC+3
- * @updated            : 
+ * @updated            : 2024-02-22 09:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  */
@@ -87,4 +87,18 @@ function validate_encoding($encoding=null, $owner='validate_encoding') {
     return (string) $encoding;
 }
 
+
+/**
+ * Quote regular expression characters.
+ *
+ * @param string $char The input char.
+ * @return string the quoted (escaped) string.
+ * 
+ * @author             : Drogidis Christos
+ * @authorSite         : www.alexsoft.gr
+ * @since 1.0.7
+ */
+function alf_preg_quote($char) {
+    return preg_quote($char, '/');
+}
 ?>
