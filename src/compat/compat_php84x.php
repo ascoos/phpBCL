@@ -19,9 +19,9 @@
  * @package            : ASCOOS CMS - phpBCL
  * @subpackage         : Core Compatibilities Manager for PHP < 8.4.0
  * @source             : /phpBCL/src/compat/compat_php84x.php
- * @version            : **** - $release: 1.0 - $revision: 6 - $build: ****
+ * @version            : **** - $release: 1.0 - $revision: 7 - $build: ****
  * @created            : 2024-02-14 05:40:00 UTC+3
- * @updated            : 2024-02-21 18:00:00 UTC+3
+ * @updated            : 2024-02-22 09:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  */
@@ -140,11 +140,14 @@ if (!function_exists('mb_lcfirst'))
 
 
 
+
+
+
 /**
  * If the function [ mb_ltrim ] does not exist then we create it.
  * ++ 8.4.0 ---- https://php.watch/versions/8.4/mb_trim-mb_ltrim-mb_rtrim
  * 
- * @since 1.0.5
+ * @since 1.0.7
  */
 if (!function_exists('mb_ltrim'))
 {
@@ -181,6 +184,12 @@ if (!function_exists('mb_ltrim'))
             return '';
         }     
 
+        // Check parameter 2 [$characters]
+        if ($characters === "") {
+            return $string;
+        }
+
+
         // Check parameter 3 [$encoding]
         $encoding = validate_encoding($encoding, 'mb_ltrim');
 
@@ -188,12 +197,28 @@ if (!function_exists('mb_ltrim'))
          * END CHECK FOR ERRORS
          ***********************/
 
-        $string = mb_convert_encoding($string, $encoding);
 
-        //quote characters for use in a characters list
-        $characters = preg_replace('!([\\\\\\-\\]\\[/^])!','\\\${1}',$characters);       
-        
-        return preg_replace('/^['.$characters.']+/u',"", $string);
+        // On supported versions, use a pre-calculated regex for performance.
+        if (PHP_VERSION_ID >= 80200 && ($encoding === null || $encoding === "UTF-8") && $characters === " \f\n\r\t\v\x00\u{00A0}\u{1680}\u{2000}\u{2001}\u{2002}\u{2003}\u{2004}\u{2005}\u{2006}\u{2007}\u{2008}\u{2009}\u{200A}\u{2028}\u{2029}\u{202F}\u{205F}\u{3000}\u{0085}\u{180E}") 
+        {
+            return preg_replace("/^[\s\0]+/u", '', $string);
+        } 
+
+        if ($encoding !== null && $encoding !== 'UTF-8') {
+            $string = mb_convert_encoding($string, "UTF-8", $encoding);
+            $characters = mb_convert_encoding($characters, "UTF-8", $encoding);
+        }
+    
+        $charactersMap = array_map('alf_preg_quote', mb_str_split($characters));
+        $regex = implode('', $charactersMap);
+    
+        $return = preg_replace("/^[" . $regex . "]+/u", '', $string);
+    
+        if ($encoding !== null && $encoding !== 'UTF-8') {
+            $return = mb_convert_encoding($return, $encoding, "UTF-8");
+        }
+    
+        return $return;
     }
 }
 
@@ -205,7 +230,7 @@ if (!function_exists('mb_ltrim'))
  * If the function [ mb_rtrim ] does not exist then we create it.
  * ++ 8.4.0 ---- https://php.watch/versions/8.4/mb_trim-mb_ltrim-mb_rtrim
  * 
- * @since 1.0.5
+ * @since 1.0.7
  */
 if (!function_exists('mb_rtrim'))
 {
@@ -228,9 +253,9 @@ if (!function_exists('mb_rtrim'))
             'mb_rtrim(): Parameter 1 must not be empty',
         );
 
-        /******************
-         * Check for Errors
-         *****************/ 
+       /******************
+        * Check for Errors
+        *****************/ 
         // Check parameter 1 [$string]
         if (!is_string($string) && !is_scalar($string) && !(is_object($string) && method_exists($string, '__toString'))) {
             trigger_error($errors[0], E_USER_WARNING);
@@ -242,19 +267,39 @@ if (!function_exists('mb_rtrim'))
             return '';
         }     
 
+        // Check parameter 2 [$characters]
+        if ($characters === "") {
+            return $string;
+        }
+
         // Check parameter 3 [$encoding]
         $encoding = validate_encoding($encoding, 'mb_rtrim');
 
         /************************
          * END CHECK FOR ERRORS
-         ***********************/        
-        
-        $string = mb_convert_encoding($string, $encoding);
+         ***********************/    
 
-        //quote charlist for use in a characterclass
-        $characters = preg_replace('!([\\\\\\-\\]\\[/^])!','\\\${1}',$characters);
+         
+        // On supported versions, use a pre-calculated regex for performance.
+        if (PHP_VERSION_ID >= 80200 && ($encoding === null || $encoding === "UTF-8") && $characters === " \f\n\r\t\v\x00\u{00A0}\u{1680}\u{2000}\u{2001}\u{2002}\u{2003}\u{2004}\u{2005}\u{2006}\u{2007}\u{2008}\u{2009}\u{200A}\u{2028}\u{2029}\u{202F}\u{205F}\u{3000}\u{0085}\u{180E}") {
+            return preg_replace("/[\s\0]+$/uD", '', $string);
+        }
 
-        return preg_replace('/['.$characters.']+$/u','',$string);  
+        if ($encoding !== null && $encoding !== 'UTF-8') {
+            $string = mb_convert_encoding($string, "UTF-8", $encoding);
+            $characters = mb_convert_encoding($characters, "UTF-8", $encoding);
+        }
+    
+        $charactersMap = array_map('alf_preg_quote', mb_str_split($characters));
+        $regex = implode('', $charactersMap);
+    
+        $return = preg_replace("/[" . $regex . "]+$/uD", '', $string);
+    
+        if ($encoding !== null && $encoding !== 'UTF-8') {
+            $return = mb_convert_encoding($return, $encoding, "UTF-8");
+        }
+    
+        return $return;
     }
 }
 
@@ -302,17 +347,41 @@ if (!function_exists('mb_trim'))
             return '';
         }     
 
-        // Check parameter 2 [$encoding]
+        // Check parameter 2 [$characters]
+        if ($characters === "") {
+            return $string;
+        }
+
+        // Check parameter 3 [$encoding]
         $encoding = validate_encoding($encoding, 'mb_trim');
 
         /************************
          * END CHECK FOR ERRORS
          ***********************/
 
-        //$string = mb_convert_encoding($string, $encoding);
-        $string = mb_convert_encoding($string, $encoding);
+        // On supported versions, use a pre-calculated regex for performance.
+        if (PHP_VERSION_ID >= 80200 && ($encoding === null || $encoding === "UTF-8") && $characters === " \f\n\r\t\v\x00\u{00A0}\u{1680}\u{2000}\u{2001}\u{2002}\u{2003}\u{2004}\u{2005}\u{2006}\u{2007}\u{2008}\u{2009}\u{200A}\u{2028}\u{2029}\u{202F}\u{205F}\u{3000}\u{0085}\u{180E}") {
+            return preg_replace("/^[\s\0]+|[\s\0]+$/uD", '', $string);
+        }
 
-        return mb_ltrim(mb_rtrim($string, $characters, $encoding), $characters, $encoding);        
+        if ($encoding !== null && $encoding !== 'UTF-8') {
+            $string = mb_convert_encoding($string, "UTF-8", $encoding);
+            $characters = mb_convert_encoding($characters, "UTF-8", $encoding);
+        }
+    
+        $charactersMap = array_map('alf_preg_quote', mb_str_split($characters));
+        $regexChars = implode('', $charactersMap);
+    
+        $return = preg_replace("/^[" . $regexChars . "]+|[" . $regexChars . "]+$/uD", '', $string);
+    
+        if ($encoding !== null && $encoding !== 'UTF-8') {
+            $return = mb_convert_encoding($return, $encoding, "UTF-8");
+        }
+    
+        return $return;
+  
+        //$string = mb_convert_encoding($string, $encoding);
+        //return mb_ltrim(mb_rtrim($string, $characters, $encoding), $characters, $encoding);        
     }
 }    
 
