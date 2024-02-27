@@ -378,12 +378,8 @@ if (!function_exists('mb_trim'))
             $return = mb_convert_encoding($return, $encoding, "UTF-8");
         }
     
-        return $return;
-  
-        //$string = mb_convert_encoding($string, $encoding);
-        //return mb_ltrim(mb_rtrim($string, $characters, $encoding), $characters, $encoding);        
+        return $return;    
     }
 }    
-
 
 ?>

@@ -21,7 +21,7 @@
  * @source             : /phpBCL/src/compat/compat_php82x.php
  * @version            : **** - $release: 1.0 - $revision: 3 - $build: ****
  * @created            : 2023-06-22 07:00:00 UTC+3
- * @updated            : 2023-07-12 07:00:00 UTC+3
+ * @updated            : 2024-02-27 07:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  */
@@ -30,7 +30,12 @@
 // Run on ASCOOS CMS only. Marked as comment if you want run this script with other cms.
 defined ("ALEXSOFT_RUN_CMS") or die("Prohibition of Access.");
 
-//include_once($cms_path."/phpBCL/src/compat/82/random.php");
+/**
+ * @since 1.0.8
+ */
+//if (version_compare(PHP_VERSION, '8.1.0', '='))  {
+//  include_once($cms_path."/phpBCL/src/compat/82/random.php");
+//}
 
 
 
@@ -74,7 +79,7 @@ if (!function_exists('mysqli_execute_query'))
    *                                    to specify a comparison value. However, they are not permitted for identifiers 
    *                                    (such as table or column names).
 
-   * @param     ?array  $params     An optional list array with as many elements as there are bound parameters in the SQL statement 
+   * @param     array|null  $params An optional list array with as many elements as there are bound parameters in the SQL statement 
    *                                being executed. Each value is treated as a string. 
    * 
    * @return    mysqli_result|bool  Returns false on failure. For successful queries which produce a result set, 
@@ -113,8 +118,11 @@ if (!function_exists('mysqli_execute_query'))
     }
 
     //
-    $stmt = $mysql->prepare($query);
-    if (!mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT) && $mysql->error) return false;
+    $stmt = $mysql::prepare($query);
+    //$stmt = mysqli_prepare($mysql, $query);
+
+    if (!mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT) && $mysql::error) return false;
+//    if (!mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT) && mysqli_error($mysql)) return false;
     
       /** 
      * Binds variables to a prepared statement as parameters
@@ -130,4 +138,100 @@ if (!function_exists('mysqli_execute_query'))
     return $stmt->get_result();
   }
 }
+
+
+
+
+
+/**
+ * If the function [ ini_parse_quantity ] does not exist then we create it.
+ * ++ 8.2.0 ---- https://www.php.net/manual/en/function.ini-parse-quantity
+ */
+if (!function_exists('ini_parse_quantity'))
+{
+  /**
+   * Get interpreted size from ini shorthand syntax 
+   * 
+   * Returns the interpreted size in bytes on success from an ini shorthand.
+   * 
+   * @see https://www.php.net/manual/function.ini-parse-quantity.php
+   * 
+   * @param $shorthand: Ini shorthand to parse, must be a number followed by an optional multiplier. 
+   *                    The following multipliers are supported: k/ K (1024), m/ M (1048576), g/ G (1073741824). 
+   *                    The number can be a decimal, hex (prefixed with 0x or 0X), octal (prefixed with 0o, 0O or 0) 
+   *                    or binary (prefixed with 0b or 0B)
+   * 
+   * @return int        Returns the interpreted size in bytes as an int.
+   * 
+   */
+  function ini_parse_quantity($shorthand) {
+    $original_shorthand = $shorthand;
+    $multiplier = 1;
+    $sign = '';
+    $return_value = 0;
+
+    $shorthand = trim($shorthand);
+
+    // Return 0 for empty strings.
+    if ($shorthand === '') {
+      return 0;
+    }
+
+    // Accept + and - as the sign.
+    if ($shorthand[0] === '-' || $shorthand[0] === '+') {
+      if ($shorthand[0] === '-') {
+          $multiplier = -1;
+          $sign = '-';
+      }
+      $shorthand = substr($shorthand, 1);
+    }
+
+    // If there is no suffix, return the integer value with the sign.
+    if (preg_match('/^\d+$/', $shorthand, $matches)) {
+      return $multiplier * $matches[0];
+    }
+
+    // Return 0 with a warning if there are no leading digits
+    if (preg_match('/^\d/', $shorthand) === 0) {
+      trigger_error(sprintf('Invalid quantity "%s": no valid leading digits, interpreting as "0" for backwards compatibility', $original_shorthand), E_USER_WARNING);
+      return $return_value;
+    }
+
+    // Removing whitespace characters.
+    $shorthand = preg_replace('/\s/', '', $shorthand);
+
+    $suffix = strtoupper(substr($shorthand, -1));
+    switch ($suffix) {
+      case 'K':
+          $multiplier *= 1024;
+          break;
+      case 'M':
+          $multiplier *= 1024 * 1024;
+          break;
+      case 'G':
+          $multiplier *= 1024 * 1024 * 1024;
+          break;
+      default:
+          preg_match('/\d+/', $shorthand, $matches);
+          trigger_error(sprintf('Invalid quantity "%s": unknown multiplier "%s", interpreting as "%d" for backwards compatibility', $original_shorthand, $suffix, $sign . $matches[0]), E_USER_WARNING        );
+          return $matches[0] * $multiplier;
+    }
+
+    $stripped_shorthand = preg_replace('/^(\d+)(\D.*)([kKmMgG])$/', '$1$3', $shorthand, -1, $count);
+    if ($count > 0) {
+      trigger_error(sprintf('Invalid quantity "%s", interpreting as "%s" for backwards compatibility', $original_shorthand, $sign . $stripped_shorthand), E_USER_WARNING);
+    }
+
+    preg_match('/\d+/', $shorthand, $matches);
+
+    $multiplied = $matches[0] * $multiplier;
+    if (is_float($multiplied)) {
+      trigger_error(sprintf('Invalid quantity "%s": value is out of range, using overflow result for backwards compatibility', $original_shorthand), E_USER_WARNING);
+    }
+
+    return (int) ($matches[0] * $multiplier);
+  }
+}
+
+
 ?>
