@@ -69,6 +69,20 @@ require_once($cms_path."/phpBCL/src/coreCompatibilities.php");
 - [-] = Removed
 
 
+## Error FILE  [compat_error.php]
+
+This file contains support code for the remaining functions of the phpBCL library.
+
+
+| A |    PHP    | phpBCL |   TYPE    |          NAME           |                DESCRIPTION
+|---|-----------|--------|-----------|-------------------------|-----------------------------------------
+| + | ALL       | 1.0.8  | FILE      | `compat_error.php`      | To support errors for php < 7
+| + | < 7.2.0   | 1.0.8  | Class     | `Error`                 | 
+| + | < 7.2.0   | 1.0.8  | Class     | `TypeError`             | 
+| + | < 8.0.0   | 1.0.8  | Class     | `ValueError`            | 
+
+
+
 ## phpBCL FILE  [phpBCL.php]
 
 This file contains support code for the remaining functions of the phpBCL library.
@@ -114,7 +128,8 @@ The contents of version-based files mean that since added to a specific PHP vers
 | ^ | < 8.4.0  | 1.0.5  | Function  | `mb_lcfirst`            | Make a multibyte string's first character lowercase.
 | + | < 8.3.0  | 1.0.2  | Function  | `mb_str_pad`            | The str_pad() function lacks multibyte character support, causing issues when working with languages that utilize multibyte encodings like UTF-8.
 | + | < 8.3.0  | 1.0.0  | Function  | `json_validate`         | Validate an string if contains a valid json.
-| + | < 8.2.0  | 1.0.3  | Function  | `mysqli_execute_query`  | Prepares, binds parameters, and executes SQL statement
+| + | < 8.2.0  | 1.0.8  | Function  | `ini_parse_quantity`    | Returns the interpreted size in bytes on success from an ini shorthand.
+| ^ | < 8.2.0  | 1.0.8  | Function  | `mysqli_execute_query`  | Prepares, binds parameters, and executes SQL statement
 | + | < 8.1.0  | 1.0.2  | Function  | `array_is_list`         | Checks whether a given array is a list
 | - | < 8.0.0  | 1.0.4  | ~~Class~~     | ~~`ValueError`~~            | REMOVED IN phpBCL 1.0.4
 | ^ | < 8.0.0  | 1.0.2  | Interface | `Stringable`            | The Stringable interface denotes a class as having a __toString() method. 

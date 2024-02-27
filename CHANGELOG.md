@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.0.8 [2024-02-27]
+
+- ADDED FILE : compat_error.php
+- Added Class Error `Error`
+- Added Class Error `TypeError`
+- Added Class Error `ValueError`
+
+#### PHP < 8.2.0
+
+- Added Function `ini_parse_quantity`
+- FIXED FUNCTION : `mysqli_execute_query`
+
+***
+
 ## 1.0.7 [2024-02-22]
 
 #### PHP < 8.4.0
