@@ -19,18 +19,24 @@
  * @package            : ASCOOS CMS - phpBCL
  * @subpackage         : Core Class - Compatibilities Main Handler file
  * @source             : /phpBCL/coreCompatibilities.php
- * @version            : **** - $release: 1.0 - $revision: 3 - $build: ****
+ * @version            : 1.0.8
  * @created            : 2013-12-31 23:59:59 GMT+2
- * @updated            : 2024-02-19 07:00:00 UTC+3
+ * @updated            : 2024-02-27 07:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
- * 
- * @since 8.3.0
  */
 
 // Run on ASCOOS CMS only. Marked as comment if you want run this script with other cms.
 defined ("ALEXSOFT_RUN_CMS") or die("Prohibition of Access.");
 
+
+/***********************************
+ * Compatibility for Error Classes
+ **********************************/
+/**
+ * @since 1.0.8
+ */
+require_once($cms_path."/phpBCL/src/compat/compat_error.php");
 
 
 /*******************************

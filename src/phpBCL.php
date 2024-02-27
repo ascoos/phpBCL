@@ -19,9 +19,9 @@
  * @package            : ASCOOS CMS - phpBCL
  * @subpackage         : phpBCL Native Functions
  * @source             : /phpBCL/src/phpBCL.php
- * @version            : **** - $release: 1.0 - $revision: 7 - $build: ****
+ * @version            : 1.0.8
  * @created            : 2024-02-20 05:40:00 UTC+3
- * @updated            : 2024-02-22 09:00:00 UTC+3
+ * @updated            : 2024-02-27 09:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  */
@@ -29,8 +29,6 @@
  
 // Run on ASCOOS CMS only. Marked as comment if you want run this script with other cms.
 defined ("ALEXSOFT_RUN_CMS") or die("Prohibition of Access.");
-
-
 
 
 /**
