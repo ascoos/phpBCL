@@ -127,11 +127,16 @@ The contents of version-based files mean that since added to a specific PHP vers
 | ^ | < 8.4.0  | 1.0.5  | Function  | `mb_ucfirst`            | Make a multibyte string's first character uppercase.
 | ^ | < 8.4.0  | 1.0.5  | Function  | `mb_lcfirst`            | Make a multibyte string's first character lowercase.
 | + | < 8.3.0  | 1.0.2  | Function  | `mb_str_pad`            | The str_pad() function lacks multibyte character support, causing issues when working with languages that utilize multibyte encodings like UTF-8.
+| + | < 8.3.0  | 1.0.9  | Function  | `stream_context_set_options` | Sets options on the specified context.
 | + | < 8.3.0  | 1.0.0  | Function  | `json_validate`         | Validate an string if contains a valid json.
+| + | < 8.2.0  | 1.0.9  | Function  | `openssl_cipher_key_length` | Gets the cipher key length.
 | + | < 8.2.0  | 1.0.8  | Function  | `ini_parse_quantity`    | Returns the interpreted size in bytes on success from an ini shorthand.
 | ^ | < 8.2.0  | 1.0.8  | Function  | `mysqli_execute_query`  | Prepares, binds parameters, and executes SQL statement
+| + | < 8.0.0  | 1.0.9  | Function  | `preg_last_error_msg`   | Returns the error message of the last PCRE regex execution.
+| + | < 8.0.0  | 1.0.9  | Function  | `get_debug_type`        | Returns the resolved name of the PHP variable value.
+| + | < 8.0.0  | 1.0.9  | Function  | `get_resource_id`       | Returns an integer identifier for the given resource
+| + | < 8.0.0  | 1.0.9  | Function  | `fdiv`                  | Divides two numbers, according to IEEE 754
 | + | < 8.1.0  | 1.0.2  | Function  | `array_is_list`         | Checks whether a given array is a list
-| - | < 8.0.0  | 1.0.4  | ~~Class~~     | ~~`ValueError`~~            | REMOVED IN phpBCL 1.0.4
 | ^ | < 8.0.0  | 1.0.2  | Interface | `Stringable`            | The Stringable interface denotes a class as having a __toString() method. 
 | ^ | < 8.0.0  | 1.0.2  | Class     | `PhpToken`              | This class provides an alternative to token_get_all(). While the function returns tokens either as a single-character string, or an array with a token ID, token text and line number, PhpToken::tokenize() normalizes all tokens into PhpToken objects, which makes code operating on tokens more memory efficient and readable. 
 | ^ | < 8.0.0  | 1.0.2  | Function  | `str_contains`          | Determine if a string contains a given substring
@@ -147,7 +152,9 @@ The contents of version-based files mean that since added to a specific PHP vers
 | ^ | < 7.3.0  | 1.0.2  | Function  | `array_key_first`       | Get the first key of the given array without affecting the internal array pointer. 
 | ^ | < 7.3.0  | 1.0.2  | Function  | `array_key_last`        | Get the last key of the given array without affecting the internal array pointer. 
 | + | < 7.3.0  | 1.0.1  | Function  | `is_countable`          | Verify that the contents of a variable is an array or an object implementing Countable 
-| + | < 7.1.0  | 1.0.1  | Function  | `is_iterable`           | Verify that the contents of a variable is an iterable value 
+| + | < 7.1.0  | 1.0.1  | Function  | `openssl_get_curve_names` | Verify that the contents of a variable is an iterable value 
+| + | < 7.1.0  | 1.0.9  | Function  | `is_iterable`           | Gets the list of available curve names
+| + | < 7.0.0  | 1.0.9  | Function  | `intdiv`                | Integer division
 | + | < 5.5.0  | 1.0.2  | Function  | `array_column`          | returns the values from a single column of the array, identified by the column_key. Optionally, an index_key may be provided to index the values in the returned array by the values from the index_key column of the input array. 
 | + | < 5.5.0  | 1.0.2  | Function  | `boolval`               | Get the boolean value of a variable
 | + | < 5.5.0  | 1.0.2  | Function  | `json_last_error_msg`   | Returns the error string of the last json_encode() or json_decode() call, which did not specify JSON_THROW_ON_ERROR.
@@ -167,5 +174,6 @@ This file implements functions that resemble the original php functions that hav
 
 | A |    PHP   | phpBCL |   TYPE    |          NAME           |                DESCRIPTION
 |---|----------|--------|-----------|-------------------------|-----------------------------------------
+| + | >= 8.3.0 | 1.0.9  | FILE      | `alf_get_class`         | Fixed E_DEPRECATED warning
 | + | ALL      | 1.0.1  | FILE      | `compat_similar.php`    | for similar functions
 | + | ALL      | 1.0.2  | Function  | `alf_mb_convert_case`   | ASCOOS LIBRARY FUNCTION : For full compatible similar mb_convert_case.

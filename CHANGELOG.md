@@ -1,5 +1,31 @@
 # Changelog
 
+## 1.0.9 [2024-02-28]
+
+#### PHP < 8.3.0
+- Added Function `stream_context_set_options` -- Sets options on the specified context.
+
+#### PHP < 8.2.0
+- Added Function `openssl_cipher_key_length` -- Gets the cipher key length.
+
+#### PHP < 8.0.0
+- Added Function `preg_last_error_msg` -- Returns the error message of the last PCRE regex execution.
+- Added Function `get_debug_type`      -- Returns the resolved name of the PHP variable value.
+- Added Function `get_resource_id`     -- Returns an integer identifier for the given resource
+- Added Function `fdiv`                -- Divides two numbers, according to IEEE 754
+
+
+#### PHP < 7.1.0
+- Added Function `openssl_get_curve_names` -- Gets the list of available curve names
+
+#### PHP < 7.0.0
+- Added Function `intdiv`              -- Integer division
+
+### SIMILAR
+- Added Function `alf_get_class()` -- For return getClass() without parameters on PHP >= 8.3.0
+
+***
+
 ## 1.0.8 [2024-02-27]
 
 - ADDED FILE : compat_error.php
@@ -8,7 +34,6 @@
 - Added Class Error `ValueError`
 
 #### PHP < 8.2.0
-
 - Added Function `ini_parse_quantity`
 - FIXED FUNCTION : `mysqli_execute_query`
 
@@ -17,7 +42,6 @@
 ## 1.0.7 [2024-02-22]
 
 #### PHP < 8.4.0
-
 - Added phpBCL Function `alf_preg_quote`
 - FIXED FUNCTIONS : `mb_trim`, `mb_ltrim`, `mbrtrim` for use on PHP 5.6
 - FIXED EXAMPLE   : `84__mb_trim.php`
