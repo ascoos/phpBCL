@@ -152,8 +152,8 @@ The contents of version-based files mean that since added to a specific PHP vers
 | ^ | < 7.3.0  | 1.0.2  | Function  | `array_key_first`       | Get the first key of the given array without affecting the internal array pointer. 
 | ^ | < 7.3.0  | 1.0.2  | Function  | `array_key_last`        | Get the last key of the given array without affecting the internal array pointer. 
 | + | < 7.3.0  | 1.0.1  | Function  | `is_countable`          | Verify that the contents of a variable is an array or an object implementing Countable 
-| + | < 7.1.0  | 1.0.1  | Function  | `openssl_get_curve_names` | Verify that the contents of a variable is an iterable value 
-| + | < 7.1.0  | 1.0.9  | Function  | `is_iterable`           | Gets the list of available curve names
+| + | < 7.1.0  | 1.0.1  | Function  | `is_iterable`           | Verify that the contents of a variable is an iterable value 
+| + | < 7.1.0  | 1.0.9  | Function  | `openssl_get_curve_names` | Gets the list of available curve names
 | + | < 7.0.0  | 1.0.9  | Function  | `intdiv`                | Integer division
 | + | < 5.5.0  | 1.0.2  | Function  | `array_column`          | returns the values from a single column of the array, identified by the column_key. Optionally, an index_key may be provided to index the values in the returned array by the values from the index_key column of the input array. 
 | + | < 5.5.0  | 1.0.2  | Function  | `boolval`               | Get the boolean value of a variable
