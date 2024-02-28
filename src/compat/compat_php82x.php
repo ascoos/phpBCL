@@ -234,4 +234,144 @@ if (!function_exists('ini_parse_quantity'))
 }
 
 
+
+
+/**
+ * If the function [ openssl_cipher_key_length ] does not exist then we create it.
+ * ++ 8.2.0 ---- https://www.php.net/manual/en/function.openssl-cipher-key-length.php
+ */
+if (!function_exists('openssl_cipher_key_length'))
+{
+  /**
+   * Gets the cipher key length.
+   * 
+   * @link https://www.php.net/manual/function.openssl-cipher-key-length.php
+   * 
+   * @param string $cipher_algo : The cipher method, see openssl_get_cipher_methods() 
+   *                              for a list of potential values.
+   * @return bool|int Returns the cipher length on success, or false on failure.
+   */
+  function openssl_cipher_key_length($cipher_algo)
+  {
+    switch (strtolower($cipher_algo))
+    {
+      case 'aes-128-cbc' : $return =  16; break;
+      case 'aes-128-cbc-hmac-sha1' : $return =  16; break;
+      case 'aes-128-cbc-hmac-sha256' : $return =  16; break;
+      case 'aes-128-ccm' : $return =  16; break;
+      case 'aes-128-cfb' : $return =  16; break;
+      case 'aes-128-cfb1' : $return =  16; break;
+      case 'aes-128-cfb8' : $return =  16; break;
+      case 'aes-128-ctr' : $return =  16; break;
+      case 'aes-128-ecb' : $return =  16; break;
+      case 'aes-128-gcm' : $return =  16; break;
+      case 'aes-128-ocb' : $return =  16; break;
+      case 'aes-128-ofb' : $return =  16; break;
+      case 'aes-128-wrap' : $return =  16; break;
+      case 'aes-128-wrap-pad' : $return =  16; break;
+      case 'aes-128-xts' : $return =  32; break;
+      case 'aes-192-cbc' : $return =  24; break;
+      case 'aes-192-ccm' : $return =  24; break;
+      case 'aes-192-cfb' : $return =  24; break;
+      case 'aes-192-cfb1' : $return =  24; break;
+      case 'aes-192-cfb8' : $return =  24; break;
+      case 'aes-192-ctr' : $return =  24; break;
+      case 'aes-192-ecb' : $return =  24; break;
+      case 'aes-192-gcm' : $return =  24; break;
+      case 'aes-192-ocb' : $return =  24; break;
+      case 'aes-192-ofb' : $return =  24; break;
+      case 'aes-192-wrap' : $return =  24; break;
+      case 'aes-192-wrap-pad' : $return =  24; break;
+      case 'aes-256-cbc' : $return =  32; break;
+      case 'aes-256-cbc-hmac-sha1' : $return =  32; break;
+      case 'aes-256-cbc-hmac-sha256' : $return =  32; break;
+      case 'aes-256-ccm' : $return =  32; break;
+      case 'aes-256-cfb' : $return =  32; break;
+      case 'aes-256-cfb1' : $return =  32; break;
+      case 'aes-256-cfb8' : $return =  32; break;
+      case 'aes-256-ctr' : $return =  32; break;
+      case 'aes-256-ecb' : $return =  32; break;
+      case 'aes-256-gcm' : $return =  32; break;
+      case 'aes-256-ocb' : $return =  32; break;
+      case 'aes-256-ofb' : $return =  32; break;
+      case 'aes-256-wrap' : $return =  32; break;
+      case 'aes-256-wrap-pad' : $return =  32; break;
+      case 'aes-256-xts' : $return =  64; break;
+      case 'aria-128-cbc' : $return =  16; break;
+      case 'aria-128-ccm' : $return =  16; break;
+      case 'aria-128-cfb' : $return =  16; break;
+      case 'aria-128-cfb1' : $return =  16; break;
+      case 'aria-128-cfb8' : $return =  16; break;
+      case 'aria-128-ctr' : $return =  16; break;
+      case 'aria-128-ecb' : $return =  16; break;
+      case 'aria-128-gcm' : $return =  16; break;
+      case 'aria-128-ofb' : $return =  16; break;
+      case 'aria-192-cbc' : $return =  24; break;
+      case 'aria-192-ccm' : $return =  24; break;
+      case 'aria-192-cfb' : $return =  24; break;
+      case 'aria-192-cfb1' : $return =  24; break;
+      case 'aria-192-cfb8' : $return =  24; break;
+      case 'aria-192-ctr' : $return =  24; break;
+      case 'aria-192-ecb' : $return =  24; break;
+      case 'aria-192-gcm' : $return =  24; break;
+      case 'aria-192-ofb' : $return =  24; break;
+      case 'aria-256-cbc' : $return =  32; break;
+      case 'aria-256-ccm' : $return =  32; break;
+      case 'aria-256-cfb' : $return =  32; break;
+      case 'aria-256-cfb1' : $return =  32; break;
+      case 'aria-256-cfb8' : $return =  32; break;
+      case 'aria-256-ctr' : $return =  32; break;
+      case 'aria-256-ecb' : $return =  32; break;
+      case 'aria-256-gcm' : $return =  32; break;
+      case 'aria-256-ofb' : $return =  32; break;
+      case 'camellia-128-cbc' : $return =  16; break;
+      case 'camellia-128-cfb' : $return =  16; break;
+      case 'camellia-128-cfb1' : $return =  16; break;
+      case 'camellia-128-cfb8' : $return =  16; break;
+      case 'camellia-128-ctr' : $return =  16; break;
+      case 'camellia-128-ecb' : $return =  16; break;
+      case 'camellia-128-ofb' : $return =  16; break;
+      case 'camellia-192-cbc' : $return =  24; break;
+      case 'camellia-192-cfb' : $return =  24; break;
+      case 'camellia-192-cfb1' : $return =  24; break;
+      case 'camellia-192-cfb8' : $return =  24; break;
+      case 'camellia-192-ctr' : $return =  24; break;
+      case 'camellia-192-ecb' : $return =  24; break;
+      case 'camellia-192-ofb' : $return =  24; break;
+      case 'camellia-256-cbc' : $return =  32; break;
+      case 'camellia-256-cfb' : $return =  32; break;
+      case 'camellia-256-cfb1' : $return =  32; break;
+      case 'camellia-256-cfb8' : $return =  32; break;
+      case 'camellia-256-ctr' : $return =  32; break;
+      case 'camellia-256-ecb' : $return =  32; break;
+      case 'camellia-256-ofb' : $return =  32; break;
+      case 'chacha20' : $return =  32; break;
+      case 'chacha20-poly1305' : $return =  32; break;
+      case 'des-ede-cbc' : $return =  16; break;
+      case 'des-ede-cfb' : $return =  16; break;
+      case 'des-ede-ecb' : $return =  16; break;
+      case 'des-ede-ofb' : $return =  16; break;
+      case 'des-ede3-cbc' : $return =  24; break;
+      case 'des-ede3-cfb' : $return =  24; break;
+      case 'des-ede3-cfb1' : $return =  24; break;
+      case 'des-ede3-cfb8' : $return =  24; break;
+      case 'des-ede3-ecb' : $return =  24; break;
+      case 'des-ede3-ofb' : $return =  24; break;
+      case 'des3-wrap' : $return =  24; break;
+      case 'sm4-cbc' : $return =  16; break;
+      case 'sm4-cfb' : $return =  16; break;
+      case 'sm4-ctr' : $return =  16; break;
+      case 'sm4-ecb' : $return =  16; break;
+      case 'sm4-ofb' : $return =  16; break;
+      default: $return =  false;
+    }
+
+    if ($return === false) {
+      trigger_error('openssl_cipher_key_length(): Unknown cipher algorithm', E_USER_WARNING);
+      return false;
+    }
+
+    return $return;
+  }
+}
 ?>

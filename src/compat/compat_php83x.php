@@ -31,6 +31,35 @@
 defined ("ALEXSOFT_RUN_CMS") or die("Prohibition of Access.");
 
 
+
+/**
+ * If the function [ stream_context_set_options ] does not exist then we create it.
+ * ++ 8.3.0 ---- https://www.php.net/manual/en/function.mb-str-pad.php
+ */
+if (!function_exists('stream_context_set_options'))
+{  
+    /**
+     * Sets options on the specified context.
+     * 
+     * @link https://www.php.net/manual/function.stream-context-set-options.php
+     * 
+     * @param resource $context: The stream or context resource to apply the options to.
+     * @param array $options: The options to set for context. 
+     *      Note : options must be an associative array of associative arrays 
+     *      in the format $array['wrapper']['option'] = $value. 
+     *      Refer to context options and parameters for a listing of stream options.
+     * @return bool Returns true on success or false on failure.
+     * 
+     * @since 1.0.9
+     */
+    function stream_context_set_options($context, $options)
+    {
+        return stream_context_set_option($context, $options); // Second syntax of function 
+    }
+}
+
+
+
 /**
  * If the function [ json_validate ] does not exist then we create it.
  * ++ 8.3.0 ---- https://www.php.net/manual/en/function.json-validate
@@ -77,8 +106,6 @@ if (!function_exists('json_validate'))
         return false;
     }
 }
-
-
 
 
 
@@ -234,6 +261,5 @@ if (!function_exists('mb_str_pad'))
         return $before . $string . $after;
     }
 }
-
 
 ?>

@@ -32,7 +32,6 @@
 defined ("ALEXSOFT_RUN_CMS") or die("Prohibition of Access.");
 
 
-
 /**
  * If the class [ Stringable ] does not exist then we create it.
  * ++ 8.0.0  ---- https://www.php.net/manual/en/class.stringable.php
@@ -383,4 +382,153 @@ if (!class_exists('PhpToken'))
   }
 }
 
+
+
+/**
+ * If the class [ preg_last_error_msg ] does not exist then we create it.
+ * ++ 8.0.0  ---- https://www.php.net/manual/function.preg-last-error-msg.php
+ */
+if (!function_exists('preg_last_error_msg')) {
+  /**
+   * Returns the error message of the last PCRE regex execution.
+   * 
+   * @link https://www.php.net/manual/function.preg-last-error-msg.php
+   * 
+   * @return string  Returns the error message on success, or "No error" if no error has occurred.
+   */
+  function preg_last_error_msg()
+  {
+      switch (preg_last_error()) {
+          case PREG_NO_ERROR:
+              return 'No error';
+          case PREG_INTERNAL_ERROR:
+              return 'Internal error';
+          case PREG_BACKTRACK_LIMIT_ERROR:
+              return 'Backtrack limit exhausted';
+          case PREG_RECURSION_LIMIT_ERROR:
+              return 'Recursion limit exhausted';
+          case PREG_BAD_UTF8_ERROR:
+              return 'Malformed UTF-8 characters, possibly incorrectly encoded';
+          case PREG_BAD_UTF8_OFFSET_ERROR:
+              return 'The offset did not correspond to the beginning of a valid UTF-8 code point';
+          case PREG_JIT_STACKLIMIT_ERROR:
+              return 'JIT stack limit exhausted';
+
+          default:
+              return 'Unknown error';
+      }
+  }
+}
+
+
+/**
+ * If the class [ get_debug_type ] does not exist then we create it.
+ * ++ 8.0.0  ---- https://www.php.net/manual/function.get-debug-type.php
+ */
+if (!function_exists('get_debug_type')) 
+{
+  /**
+   * Gets the type name of a variable in a way that is suitable for debugging
+   * 
+   * Returns the resolved name of the PHP variable value. 
+   * This function will resolve objects to their class name, resources to their resource type name, 
+   * and scalar values to their common name as would be used in type declarations.
+   * 
+   * This function differs from gettype() in that it returns type names that are more consistent 
+   * with actual usage, rather than those present for historical reasons. 
+   * 
+   * @link https://www.php.net/manual/function.get-debug-type.php
+   * 
+   * @param $value: The variable being type checked.
+   * 
+   * @return string Possible values for the returned string are:
+   */
+  function get_debug_type($value)
+  {
+      switch (true) {
+          case null === $value: return 'null';
+          case is_bool($value): return 'bool';
+          case is_string($value): return 'string';
+          case is_array($value): return 'array';
+          case is_int($value): return 'int';
+          case is_float($value): return 'float';
+          case is_object($value): break;
+          case $value instanceof __PHP_Incomplete_Class: return '__PHP_Incomplete_Class';
+          default:
+              if (null === $type = @get_resource_type($value)) {
+                  return 'unknown';
+              }
+
+              if ('Unknown' === $type) {
+                  $type = 'closed';
+              }
+
+              return "resource ($type)";
+      }
+
+      $class = get_class($value);
+
+      if (false === strpos($class, '@')) {
+          return $class;
+      }
+
+      return (get_parent_class($class) ?: key(class_implements($class)) ?: 'class').'@anonymous';
+  }
+}
+
+
+
+/**
+ * If the class [ get_resource_id ] does not exist then we create it.
+ * ++ 8.0.0  ---- https://www.php.net/manual/function.get-resource-id.php
+ */
+if (!function_exists('get_resource_id')) 
+{
+  /**
+   * Returns an integer identifier for the given resource
+   * 
+   * This function provides a type-safe way for generating the integer identifier for a resource.
+   * 
+   * @link https://www.php.net/manual/function.get-resource-id.php
+   * 
+   * @param resource $resource: The evaluated resource handle.
+   * 
+   * @return int  The int identifier for the given resource. 
+   *              This function is essentially an int cast of resource to make it easier 
+   *              to retrieve the resource ID.
+   */
+  function get_resource_id($resource)
+  {
+    if (!is_resource($resource) && null === @get_resource_type($resource)) {
+      throw new TypeError(sprintf('Argument 1 passed to get_resource_id() must be of the type resource, %s given', get_debug_type($resource)));
+    }
+
+    return (int) $resource;
+  }
+}
+
+
+/**
+ * If the class [ fdiv ] does not exist then we create it.
+ * ++ 8.0.0  ---- https://www.php.net/manual/function.fdiv.php
+ */
+if (!function_exists('fdiv'))
+{
+  /**
+   * Divides two numbers, according to IEEE 754
+   * 
+   * Returns the floating point result of dividing the num1 by the num2. 
+   * If the num2 is zero, then one of INF, -INF, or NAN will be returned.
+   * 
+   * @link https://www.php.net/manual/function.fdiv.php
+   * 
+   * @param float $num1: The dividend (numerator)
+   * @param float $num2: The divisor
+   * @return float The floating point result of num1/ num2
+   */
+  function fdiv($num1, $num2)
+  {
+      return @($num1 / $num2);
+  }
+}
 ?>

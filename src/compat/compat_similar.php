@@ -32,6 +32,17 @@ defined ("ALEXSOFT_RUN_CMS") or die("Prohibition of Access.");
 
 
 
+/**
+ * 8.3.0 	Calling get_class() without an argument now emits an E_DEPRECATED warning; previously, 
+ *          calling this function inside a class returned the name of that class. 
+ * 
+ * @link https://www.php.net/manual/en/function.get-class.php
+ */
+function alf_get_class() {
+    return __CLASS__;
+}
+
+
 
 /**
  * Performs case folding on a string, converted in the way specified by mode. 
