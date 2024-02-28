@@ -66,7 +66,7 @@ if (version_compare(PHP_VERSION, '5.5.0', '<')) require_once($cms_path."/phpBCL/
 /*********
  *  7.x
  ********/
-//if (version_compare(PHP_VERSION, '7.0.0', '<')) require_once($cms_path."/phpBCL/src/compat/compat_php70x.php");
+if (version_compare(PHP_VERSION, '7.0.0', '<')) require_once($cms_path."/phpBCL/src/compat/compat_php70x.php");
 if (version_compare(PHP_VERSION, '7.1.0', '<')) require_once($cms_path."/phpBCL/src/compat/compat_php71x.php");
 //if (version_compare(PHP_VERSION, '7.2.0', '<')) require_once($cms_path."/phpBCL/src/compat/compat_php72x.php");
 if (version_compare(PHP_VERSION, '7.3.0', '<')) require_once($cms_path."/phpBCL/src/compat/compat_php73x.php");
