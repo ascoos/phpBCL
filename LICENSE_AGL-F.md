@@ -4,7 +4,7 @@
 
 # ASCOOS CMS License (Free Use) - AGL-F
 
- ## You are free to:
+## You are free to:
 
 Share or copy and redistribute the material in any medium or format for any purpose, even commercially. 
 
