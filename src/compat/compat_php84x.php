@@ -13,15 +13,15 @@
  * @ASCOOS-CREATOR     : Drogidis Christos                                           *
  * @ASCOOS-SITE        : www.ascoos.com                                              *
  * @ASCOOS-LICENSE     : [Commercial] http://docs.ascoos.com/lics/ascoos/AGL-F.html  *
- * @ASCOOS-COPYRIGHT   : Copyright (c) 2007 - 2023, AlexSoft Software.               *
+ * @ASCOOS-COPYRIGHT   : Copyright (c) 2007 - 2024, AlexSoft Software.               *
  *************************************************************************************
  *
  * @package            : ASCOOS CMS - phpBCL
  * @subpackage         : Core Compatibilities Manager for PHP < 8.4.0
  * @source             : /phpBCL/src/compat/compat_php84x.php
- * @version            : **** - $release: 1.0 - $revision: 7 - $build: ****
+ * @version            : 1.1.0
  * @created            : 2024-02-14 05:40:00 UTC+3
- * @updated            : 2024-02-22 09:00:00 UTC+3
+ * @updated            : 2024-03-20 09:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  */
@@ -382,4 +382,50 @@ if (!function_exists('mb_trim'))
     }
 }    
 
+
+
+
+/**
+ * If the function [ http_clear_last_response_headers ] does not exist then we create it.
+ * ++ 8.4.0 ---- https://php.watch/versions/8.4/http_get-clear_last_response_headers
+ * 
+ * @since 1.1.0
+ */
+if (!function_exists('http_clear_last_response_headers'))
+{
+    /**  
+     * Clears the HTTP headers from the last HTTP wrapper HTTP response.
+     */
+    function http_clear_last_response_headers()
+    {
+        global $http_response_header;
+
+        $http_response_header = null;
+    }
+}    
+
+
+/**
+ * If the function [ http_get_last_response_headers ] does not exist then we create it.
+ * ++ 8.4.0 ---- https://php.watch/versions/8.4/http_get-clear_last_response_headers
+ * 
+ * @since 1.1.0
+ */
+if (!function_exists('http_get_last_response_headers'))
+{
+    /**  
+     * Returns HTTP response headers from the last HTTP request that
+     * used the HTTP wrapper. If the request failed, or if there is no
+     * last HTTP request, it returns null.
+     *
+     * @return array|null  
+     */
+    function http_get_last_response_headers() 
+    {
+        global $http_response_header;
+     
+        if (is_null($http_response_header)) return null;
+        return $http_response_header;
+    }
+}    
 ?>
