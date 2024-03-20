@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.1.0 [2024-03-20]
+
+- Updated README.md
+- ADDED FILE : `LICENSE_AGL-F.md` -- Package License `AGL-F` (Ascoos General License - Free Use).
+- ADDED EXAMPLE FILE : `84__http_get_last_response_headers.php` 
+
+#### PHP < 8.4
+- Added Function `http_get_last_response_headers`
+- Added Function `http_clear_last_response_headers`
+- UPDATED FUNCTIONS : `mb_trim`, `mb_ltrim`, `mbrtrim`
+
+
+***
+
 ## 1.0.9 [2024-02-28]
 
 #### PHP < 8.3.0

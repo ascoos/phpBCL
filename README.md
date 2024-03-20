@@ -8,6 +8,13 @@ These is PHP Backwards Compatibility Library (phpBCL).
 
 ***
 
+[![Download phpBCL](https://img.shields.io/sourceforge/dt/phpbcl.svg)](https://sourceforge.net/projects/phpbcl/files/latest/download)
+[![Download phpBCL](https://img.shields.io/sourceforge/dm/phpbcl.svg)](https://sourceforge.net/projects/phpbcl/files/latest/download)
+[![Download phpBCL](https://img.shields.io/sourceforge/dw/phpbcl.svg)](https://sourceforge.net/projects/phpbcl/files/latest/download)
+[![Download phpBCL](https://img.shields.io/sourceforge/dd/phpbcl.svg)](https://sourceforge.net/projects/phpbcl/files/latest/download)
+
+***
+
 ## Awards
 
 <p align="center"><img src="https://apps.ascoos.com/phpBCL/images/PHPCLASSES-Certificate.png" height=512 /></p>
@@ -26,7 +33,7 @@ Please send any feedback or suggestions to [@ascoos](https://twitter.com/ascoos)
 
 ## License
 
-[AGL-F (ASCOOS General License - Free)](http://docs.ascoos.com/lics/ascoos/AGL-F.html)
+[`AGL-F` (ASCOOS General License - Free)](http://docs.ascoos.com/lics/ascoos/AGL-F.html)
 
 ***
 
@@ -37,6 +44,8 @@ Please send any feedback or suggestions to [@ascoos](https://twitter.com/ascoos)
 1. [OFFICIAL ASCOOS DOWNLOAD SITE](https://dl.ascoos.com/pub/phpBCL/phpBCL-latest.zip)
 2. [GITHUB](https://github.com/ascoos/phpBCL/releases)
 3. [www.phpclasses.org](https://www.phpclasses.org/package/12926.html)
+
+[![Download phpBCL](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/phpbcl/files/latest/download)
 
 
 <br>
@@ -121,6 +130,8 @@ The contents of version-based files mean that since added to a specific PHP vers
 
 | A |    PHP   | phpBCL |   TYPE    |          NAME           |                DESCRIPTION
 |---|----------|--------|-----------|-------------------------|-----------------------------------------
+| + | < 8.4.0  | 1.1.0  | Function  | `http_get_last_response_headers` | Get Last Response Headers
+| + | < 8.4.0  | 1.1.0  | Function  | `http_clear_last_response_headers` | Clear Last Response Headers
 | ^ | < 8.4.0  | 1.0.7  | Function  | `mb_ltrim`              | Multi-byte safely strip white-spaces (or other characters) from the beginning of a string. 
 | ^ | < 8.4.0  | 1.0.7  | Function  | `mb_rtrim`              | Multi-byte safely strip white-spaces (or other characters) from the end of a string. 
 | ^ | < 8.4.0  | 1.0.7  | Function  | `mb_trim`               | Multi-byte safely strip white-spaces (or other characters) from the beginning and end of a string.  
