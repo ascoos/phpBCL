@@ -427,5 +427,206 @@ if (!function_exists('http_get_last_response_headers'))
         if (is_null($http_response_header)) return null;
         return $http_response_header;
     }
-}    
+}  
+
+
+
+/**
+ * If the function [ array_find ] does not exist then we create it.
+ * ++ 8.4.0 ---- hhttps://php.watch/versions/8.4/array_find-array_find_key-array_any-array_all
+ * 
+ * @since 1.1.1
+ */
+if (!function_exists('array_find'))
+{  
+    /**
+     * Returns the VALUE of the first element from $array for which the
+     *  $callback returns true. Returns NULL if no matching element is
+     *  found.
+     *
+     * @param array $array The array that should be searched.
+     * @param callable $callback The callback function to call to check
+     *  each element. The first parameter contains the value ($value),
+     *  the second parameter contains the corresponding key ($key).
+     *  If this callback returns TRUE (or a truthy value), the value
+     *  ($value) is returned immediately and the callback will not be
+     *  called for further elements.
+     *
+     * @return mixed The function returns the value of the first
+     *  element for which the $callback returns TRUE. NULL, if no
+     *  matching element is found. Note that the matching element value
+     *  itself could be NULL as well.
+    */
+    function array_find(array $array, callable $callback) {
+        foreach ($array as $key => $value) {
+            if ($callback($value, $key)) {
+                return $value;
+            }
+        }       
+        return null;
+    }
+}
+
+
+
+/**
+ * If the function [ array_find_key ] does not exist then we create it.
+ * ++ 8.4.0 ---- hhttps://php.watch/versions/8.4/array_find-array_find_key-array_any-array_all
+ * 
+ * @since 1.1.1
+ */
+if (!function_exists('array_find_key'))
+{
+    /**
+     * Returns the KEY of the first element from $array for which the
+     *  $callback returns TRUE. If no matching element is found the
+     *  function returns NULL.
+     *
+     * @param array $array The array that should be searched.
+     * @param callable $callback The callback function to call to check
+     *  each element. The first parameter contains the value ($value),
+     *  the second parameter contains the corresponding key ($key). If
+     *  this function returns TRUE, the key ($key) is returned
+     *  immediately and the callback will not be called for further
+     *  elements.
+     *
+     * @return mixed The key of the first element for which the
+     *  $callback returns TRUE. NULL, If no matching element is found.
+    */
+    function array_find_key(array $array, callable $callback) {
+        foreach ($array as $key => $value) {
+            if ($callback($value, $key)) {
+                return $key;
+            }
+        }
+        return null;
+    }
+}
+
+
+/**
+ * If the function [ array_all ] does not exist then we create it.
+ * ++ 8.4.0 ---- hhttps://php.watch/versions/8.4/array_find-array_find_key-array_any-array_all
+ * 
+ * @since 1.1.1
+ */
+if (!function_exists('array_all'))
+{
+    /**
+     * Checks whether the $callback returns TRUE for ALL the array
+     *  elements.
+     *
+     * @param array $array The array that should be searched.
+     * @param callable $callback The callback function to call to check
+     *  each element. The first parameter contains the value ($value), the
+     *  second parameter contains the corresponding key. If this function
+     *  returns FALSE (or any falsy value), FALSE is returned immediately
+     *  and the $callback will not be called for further elements.
+     *
+     * @return bool TRUE, if $callback returns TRUE for all elements.
+     *  FALSE otherwise.
+    */
+    function array_all(array $array, callable $callback) {
+        foreach ($array as $key => $value) {
+            if (!$callback($value, $key)) {
+                return false;
+            }
+        }    
+        return true;
+    }
+}
+
+
+/**
+ * If the function [ array_any ] does not exist then we create it.
+ * ++ 8.4.0 ---- hhttps://php.watch/versions/8.4/array_find-array_find_key-array_any-array_all
+ * 
+ * @since 1.1.1
+ */
+if (!function_exists('array_any'))
+{
+    /**
+     * Checks whether the $callback returns TRUE for ANY of the array
+     *  elements.
+     *
+     * @param array $array The array that should be searched.
+     * @param callable $callback The callback function to call to check
+     *  each element. The first parameter contains the value ($value), the
+     *  second parameter contains the corresponding key ($key). If this
+     *  function returns TRUE (or a truthy value), TRUE is returned
+     *  immediately and the $callback will not be called for further
+     *  elements.
+     *
+     * @return bool TRUE if there is at least one element for which
+     *  $callback returns TRUE. FALSE otherwise.
+     */
+    function array_any(array $array, callable $callback) {
+        foreach ($array as $key => $value) {
+            if ($callback($value, $key)) {
+                return true;
+            }
+        }    
+        return false;
+    }
+}
+
+
+/**
+ * If the function [ grapheme_str_split ] does not exist then we create it.
+ * ++ 8.4.0 ---- https://php.watch/versions/8.4/grapheme_str_split
+ * 
+ * @since 1.1.1
+ */
+if (!function_exists('grapheme_str_split'))
+{
+    /**
+     * Splits a string into an array of individual or chunks of graphemes.
+     *
+     * @param string $string The string to split into individual graphemes
+     *  or chunks of graphemes.
+     * @param int $length If specified, each element of the returned array
+     *  will be composed of multiple graphemes instead of a single
+     *  graphemes.
+     *
+     * @return array|false
+     */
+    function grapheme_str_split($string, $length = 1)
+    {
+        /**
+         * Array with Strings Errors for this function.
+         */
+        $errors = [
+            'grapheme_str_split(): Argument #1 ($string) must not be empty',
+            'grapheme_str_split(): Argument #2 ($length) must be greater than 0 and less than or equal to 1073741823.'
+        ];
+        
+        if ($length < 0 || $length > 1073741823) {
+            trigger_error($errors[1], E_USER_WARNING);
+            return false;            
+        }
+        if ($string === '') {
+            trigger_error($errors[0], E_USER_WARNING);            
+            return [];
+        }
+
+        preg_match_all('/\X/u', $string, $matches);
+
+        if (empty($matches[0])) {
+            return false;
+        }
+
+        if ($length === 1) {
+            return $matches[0];
+        }
+
+        $chunks = array_chunk($matches[0], $length);
+
+        array_walk($chunks, static function(&$value) {
+            $value = implode('', $value);
+        });
+
+        return $chunks;
+    }
+}
+
 ?>
