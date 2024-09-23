@@ -19,9 +19,9 @@
  * @package            : ASCOOS CMS - phpBCL
  * @subpackage         : Core Compatibilities Manager for PHP < 8.4.0
  * @source             : /phpBCL/src/compat/compat_php84x.php
- * @version            : 1.1.0
+ * @version            : 1.1.1
  * @created            : 2024-02-14 05:40:00 UTC+3
- * @updated            : 2024-03-20 09:00:00 UTC+3
+ * @updated            : 2024-09-23 13:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  */
