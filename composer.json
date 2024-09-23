@@ -1,7 +1,7 @@
 {
     "name": "ascoos/phpBCL",
     "description": "PHP Backwards Compatibility Library (phpBCL).",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "license":"AGL-F (Ascoos General License - Free)",
     "homepage": "https://apps.ascoos.com/phpBCL",
     "authors": [
@@ -20,7 +20,7 @@
             "type": "package",
             "package": {
                 "name": "ascoos/phpBCL",
-                "version": "1.1.0",
+                "version": "1.1.1",
                 "type": "library",
                 "dist": [
                     {
@@ -28,7 +28,7 @@
                         "type": "zip"
                     },
                     {
-                        "url": "https://github.com/ascoos/phpBCL/releases/download/1.0.9/phpBCL-1.0.9.zip",
+                        "url": "https://github.com/ascoos/phpBCL/releases/download/1.1.1/phpBCL-1.1.1.zip",
                         "type": "zip"
                     },
                     {

@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.1.1 [2024-09-23]
+
+- Updated README.md
+
+#### PHP < 8.4
+- Added Function `array_find`
+- Added Function `array_find_key`
+- Added Function `array_all`
+- Added Function `array_any`
+- Added Function `grapheme_str_split`
+
+
+***
+
 ## 1.1.0 [2024-03-20]
 
 - Updated README.md

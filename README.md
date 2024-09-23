@@ -130,6 +130,11 @@ The contents of version-based files mean that since added to a specific PHP vers
 
 | A |    PHP   | phpBCL |   TYPE    |          NAME           |                DESCRIPTION
 |---|----------|--------|-----------|-------------------------|-----------------------------------------
+| + | < 8.4.0  | 1.1.1  | Function  | `grapheme_str_split`    | Splits a string into an array of individual or chunks of graphemes.
+| + | < 8.4.0  | 1.1.1  | Function  | `array_find`            | Returns the VALUE of the first element from $array for which the $callback returns true. Returns NULL if no matching element is found.
+| + | < 8.4.0  | 1.1.1  | Function  | `array_find_key`        | Returns the KEY of the first element from $array for which the $callback returns TRUE. If no matching element is found the function returns NULL.
+| + | < 8.4.0  | 1.1.1  | Function  | `array_all`             | Checks whether the $callback returns TRUE for ALL the array elements.
+| + | < 8.4.0  | 1.1.1  | Function  | `array_any`             | Checks whether the $callback returns TRUE for ANY of the array elements.
 | + | < 8.4.0  | 1.1.0  | Function  | `http_get_last_response_headers` | Get Last Response Headers
 | + | < 8.4.0  | 1.1.0  | Function  | `http_clear_last_response_headers` | Clear Last Response Headers
 | ^ | < 8.4.0  | 1.0.7  | Function  | `mb_ltrim`              | Multi-byte safely strip white-spaces (or other characters) from the beginning of a string. 
