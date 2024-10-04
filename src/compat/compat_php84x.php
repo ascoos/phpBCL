@@ -629,4 +629,60 @@ if (!function_exists('grapheme_str_split'))
     }
 }
 
+
+
+
+/**
+ * If the function [ bcdivmod ] does not exist then we create it.
+ * ++ 8.4.0 ---- https://php.watch/versions/8.4/bcdivmod
+ * 
+ * @since 1.1.2
+ */
+if (!function_exists('bcdivmod'))
+{
+    /**
+     * Returns an array with the quotient (whole values) as a string, and the remainder as a string 
+     * containing $scale number of decimal values.
+     * 
+     * @param string $num1 Dividend, as a string.
+     * @param string $num2 Divisor, as a string.
+     * @param int|null $scale Number of digits after the decimal place in the remainder.
+     *      If omitted or null, it will default to the scale set globally with the bcscale() function, 
+     *      or fallback to bcmath.scale INI value (default to 0) if this has not been set.
+     *
+     * @return array
+     */
+    function bcdivmod($num1, $num2, $scale = null)
+    {
+        /**
+         * Array with Strings Errors for this function.
+         */
+        $errors = [
+            'bcdivmod(): Argument #1 ($num1) is not well-formed',
+            'bcdivmod(): Argument #2 ($num2) is not well-formed',
+            'bcdivmod(): Division by zero',
+        ];
+
+        if (!is_numeric($num1)) {
+            trigger_error($errors[0], E_USER_WARNING);
+            return [];   
+        }
+
+        if (!is_numeric($num2)) {
+            trigger_error($errors[1], E_USER_WARNING);
+            return [];             
+        }
+
+        if ($num2 === '0') {
+            trigger_error($errors[2], E_USER_WARNING);
+            return [];  
+        }
+
+        return [
+            bcdiv($num1, $num2, 0),
+            bcmod($num1, $num2, $scale),
+        ];
+    }
+}
+
 ?>
