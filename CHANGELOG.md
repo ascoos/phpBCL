@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.1.2 [2024-10-04]
+
+- Updated README.md
+
+#### PHP < 8.4
+- Added Function `bcdivmod`
+- ADDED EXAMPLE FILE :  `84_bcdivmod.php`
+- ADDED EXAMPLE FILE :  `84_array_find.php`
+- ADDED EXAMPLE FILE :  `84_array_find_key.php`
+- ADDED EXAMPLE FILE :  `84_array_all.php`
+- ADDED EXAMPLE FILE :  `84_array_any.php`
+- ADDED EXAMPLE FILE :  `84_grapheme_str_split.php`
+
+***
+
 ## 1.1.1 [2024-09-23]
 
 - Updated README.md
