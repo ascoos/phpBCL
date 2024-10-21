@@ -5,7 +5,9 @@
 ![GitHub Release](https://img.shields.io/github/v/release/ascoos/phpbcl) 
 ![GitHub Release Date](https://img.shields.io/github/release-date/ascoos/phpbcl?color=%230E80C0)
 ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/ascoos/phpbcl/total?color=%230E80C0) 
-![GitHub repo size](https://img.shields.io/github/repo-size/ascoos/phpbcl)
+![GitHub repo size](https://img.shields.io/github/repo-size/ascoos/phpbcl) 
+[![PHP Classes](https://img.shields.io/badge/php-classes-blue.svg)](https://www.phpclasses.org/package/12926.html) 
+
 
 
 
@@ -21,13 +23,6 @@ These is PHP Backwards Compatibility Library (phpBCL).
 [![Download phpBCL](https://img.shields.io/sourceforge/dm/phpbcl.svg)](https://sourceforge.net/projects/phpbcl/files/latest/download)
 [![Download phpBCL](https://img.shields.io/sourceforge/dw/phpbcl.svg)](https://sourceforge.net/projects/phpbcl/files/latest/download)
 [![Download phpBCL](https://img.shields.io/sourceforge/dd/phpbcl.svg)](https://sourceforge.net/projects/phpbcl/files/latest/download)
-
-***
-
-### OTHERS
-[![PHP Classes](https://img.shields.io/badge/php-classes-blue.svg)](https://www.phpclasses.org/package/12926.html) 
-
-
 
 ***
 
