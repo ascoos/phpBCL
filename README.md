@@ -2,16 +2,31 @@
 
 # PHP Backwards Compatibility Library (phpBCL)
 
+![GitHub Release](https://img.shields.io/github/v/release/ascoos/phpbcl) 
+![GitHub Release Date](https://img.shields.io/github/release-date/ascoos/phpbcl) 
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/ascoos/phpbcl/total) 
+![GitHub repo size](https://img.shields.io/github/repo-size/ascoos/phpbcl)
+
+
+
+
 ## Description
 
 These is PHP Backwards Compatibility Library (phpBCL).
 
 ***
 
+### SOURCEFORGE
 [![Download phpBCL](https://img.shields.io/sourceforge/dt/phpbcl.svg)](https://sourceforge.net/projects/phpbcl/files/latest/download)
 [![Download phpBCL](https://img.shields.io/sourceforge/dm/phpbcl.svg)](https://sourceforge.net/projects/phpbcl/files/latest/download)
 [![Download phpBCL](https://img.shields.io/sourceforge/dw/phpbcl.svg)](https://sourceforge.net/projects/phpbcl/files/latest/download)
 [![Download phpBCL](https://img.shields.io/sourceforge/dd/phpbcl.svg)](https://sourceforge.net/projects/phpbcl/files/latest/download)
+
+***
+
+
+
+
 
 ***
 
