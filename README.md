@@ -3,8 +3,8 @@
 # PHP Backwards Compatibility Library (phpBCL)
 
 ![GitHub Release](https://img.shields.io/github/v/release/ascoos/phpbcl) 
-![GitHub Release Date](https://img.shields.io/github/release-date/ascoos/phpbcl) 
-![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/ascoos/phpbcl/total) 
+![GitHub Release Date](https://img.shields.io/github/release-date/ascoos/phpbcl?color=%230E80C0)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/ascoos/phpbcl/total?color=%230E80C0) 
 ![GitHub repo size](https://img.shields.io/github/repo-size/ascoos/phpbcl)
 
 
