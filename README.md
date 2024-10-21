@@ -16,7 +16,11 @@
 
 ## Description
 
-These is PHP Backwards Compatibility Library (phpBCL).
+This package provides functions of newer PHP versions for older versions.
+
+It provides scripts that implement functions only available in newer PHP versions as functions built-in in the PHP core engine. The parts work in older PHP versions.
+
+A main script checks the current PHP version and loads that implement the functions of newer PHP versions.
 
 ***
 
