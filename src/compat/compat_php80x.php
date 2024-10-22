@@ -19,17 +19,12 @@
  * @package            : ASCOOS CMS - phpBCL
  * @subpackage         : Core Compatibilities Manager for PHP < 8.0.0
  * @source             : /phpBCL/src/compat/compat_php80x.php
- * @version            : **** - $release: 1.0 - $revision: 1 - $build: ****
+ * @version            : 1.1.3
  * @created            : 2023-06-22 07:00:00 UTC+3
- * @updated            : 2023-07-07 07:00:00 UTC+3
+ * @updated            : 2024-10-22 07:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  */
-
-
-
-// Εκτέλεση μόνο από το ASCOOS
-defined ("ALEXSOFT_RUN_CMS") or die("Prohibition of Access.");
 
 
 /**
@@ -38,9 +33,17 @@ defined ("ALEXSOFT_RUN_CMS") or die("Prohibition of Access.");
  */
 if (!interface_exists('Stringable')) 
 {
-
-  interface Stringable {
+  /**
+ * Interface implemented by classes that are convertible to string.
+ */
+  interface Stringable 
+  {
     /* Methods */
+	  
+    /**
+	   * Gets a string representation of the object
+	   * @return string Returns the `string` representation of the object.
+	   */    
     public function __toString();
   }
 
@@ -164,22 +167,6 @@ if (!function_exists('str_starts_with'))
 }
 
 
-
-
-
-/**
- * If the class [ Stringable ] does not exist then we create it.
- * ++ 8.0.0  ---- https://www.php.net/manual/en/class.stringable.php
- */
-if (!interface_exists('Stringable')) 
-{
-
-  interface Stringable {
-    /* Methods */
-    public function __toString();
-  }
-
-}
 
 
 
@@ -352,7 +339,7 @@ if (!class_exists('PhpToken'))
      * 
      * @return string   A textual content of the token. 
      */
-    public function __toString() {
+    public function __toString(){
       return $this->text;
     }
     

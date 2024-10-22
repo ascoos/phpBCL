@@ -19,20 +19,18 @@
  * @package            : ASCOOS CMS - phpBCL
  * @subpackage         : Example array_find_key Function
  * @source             : /phpBCL/test/84_array_find_key.php
- * @version            : 1.1.2
+ * @version            : 1.1.3
  * @created            : 2024-10-04 07:00:00 UTC+3
- * @updated            : 
+ * @updated            : 2024-10-22 07:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  * 
  * @since 5.6.40
  */
 
- define('ALEXSOFT_RUN_CMS', true);
 
- $cms_path = str_replace('/phpBCL/test', '',str_replace('\\', '/', __DIR__));
-  
- require_once($cms_path."/phpBCL/src/coreCompatibilities.php");
+
+require_once("../autoload.php");
 
 function is_even($value)
 {
@@ -47,9 +45,10 @@ function is_key_numeric($value, $key)
 // Since PHP >= 5.6
 echo array_find_key(['foo' => 1, 'bar' => 2, 'baz' => 3], 'is_even').'<br>'; // "bar"
 echo array_find_key(['a' => 'foo', 2 => 'bar'], 'is_key_numeric').'<br>'; // "2"
-
+/*
 // Since PHP >= 7.4
 if (version_compare(PHP_VERSION, '7.4.0', '>=')) { 
     array_find_key(['foo' => 1, 'bar' => 2, 'baz' => 3], fn($value) => $value % 2 === 0); // "bar"
 }
+*/
 ?>

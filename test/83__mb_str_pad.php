@@ -19,18 +19,16 @@
  * @package            : ASCOOS CMS - phpBCL
  * @subpackage         : Example mb_str_pad Function
  * @source             : /phpBCL/test/mb_str_pad.php
- * @version            : **** - $release: 1.0 - $revision: 1 - $build: ****
+ * @version            : 1.1.3
  * @created            : 2023-07-07 07:00:00 UTC+3
- * @updated            : 
+ * @updated            : 2024-10-22 07:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  */
 
-define('ALEXSOFT_RUN_CMS', true);
 
-$cms_path = str_replace('/phpBCL/test', '',str_replace('\\', '/', __DIR__));
  
-require_once($cms_path."/phpBCL/src/coreCompatibilities.php");
+ require_once("../autoload.php");
 
 
  

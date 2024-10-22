@@ -19,18 +19,14 @@
  * @package            : ASCOOS CMS - phpBCL
  * @subpackage         : Core Compatibilities Manager for PHP < 8.3.0
  * @source             : /phpBCL/src/compat/compat_php83x.php
- * @version            : **** - $release: 1.0 - $revision: 1 - $build: ****
+ * @version            : 1.1.3
  * @created            : 2023-06-22 07:00:00 UTC+3
- * @updated            : 2023-07-07 07:00:00 UTC+3
+ * @updated            : 2024-10-22 07:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  */
 
  
-// Run on ASCOOS CMS only. Marked as comment if you want run this script with other cms.
-defined ("ALEXSOFT_RUN_CMS") or die("Prohibition of Access.");
-
-
 
 /**
  * If the function [ stream_context_set_options ] does not exist then we create it.

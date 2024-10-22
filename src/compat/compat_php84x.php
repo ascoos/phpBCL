@@ -19,18 +19,14 @@
  * @package            : ASCOOS CMS - phpBCL
  * @subpackage         : Core Compatibilities Manager for PHP < 8.4.0
  * @source             : /phpBCL/src/compat/compat_php84x.php
- * @version            : 1.1.1
+ * @version            : 1.1.3
  * @created            : 2024-02-14 05:40:00 UTC+3
- * @updated            : 2024-09-23 13:00:00 UTC+3
+ * @updated            : 2024-10-22 07:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  */
 
  
-// Run on ASCOOS CMS only. Marked as comment if you want run this script with other cms.
-defined ("ALEXSOFT_RUN_CMS") or die("Prohibition of Access.");
-
-
 
 
 /**
@@ -660,7 +656,7 @@ if (!function_exists('bcdivmod'))
         $errors = [
             'bcdivmod(): Argument #1 ($num1) is not well-formed',
             'bcdivmod(): Argument #2 ($num2) is not well-formed',
-            'bcdivmod(): Division by zero',
+            'bcdivmod(): Division by zero'
         ];
 
         if (!is_numeric($num1)) {
@@ -678,10 +674,17 @@ if (!function_exists('bcdivmod'))
             return [];  
         }
 
-        return [
-            bcdiv($num1, $num2, 0),
-            bcmod($num1, $num2, $scale),
-        ];
+        if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
+            return [
+                bcdiv($num1, $num2, 0),
+                bcmod($num1, $num2, $scale)
+            ];
+        } else {
+            return [
+                bcdiv($num1, $num2, 0),
+                bcmod($num1, $num2)
+            ];            
+        }
     }
 }
 

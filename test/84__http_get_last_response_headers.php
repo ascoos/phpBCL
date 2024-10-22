@@ -19,20 +19,18 @@
  * @package            : ASCOOS CMS - phpBCL
  * @subpackage         : Example http_get_last_response_headers & http_clear_last_response_headers Functions
  * @source             : /phpBCL/test/84__http_get_last_response_headers.php
- * @version            : 1.0.0
+ * @version            : 1.1.3
  * @created            : 2024-03-20 03:00:00 UTC+3
- * @updated            : 
+ * @updated            : 2024-10-22 07:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  * 
  * @since 1.1.0
  */
 
-define('ALEXSOFT_RUN_CMS', true);
 
-$cms_path = str_replace('/phpBCL/test', '', str_replace('\\', '/', __DIR__));
-  
-require_once($cms_path."/phpBCL/src/coreCompatibilities.php");
+ 
+ require_once("../autoload.php");
 
 
 var_dump(http_get_last_response_headers()); // RETURN NULL

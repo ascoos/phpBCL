@@ -19,16 +19,12 @@
  * @package            : ASCOOS CMS - phpBCL
  * @subpackage         : Core Compatibilities Manager for PHP < 5.5.0
  * @source             : /phpBCL/src/compat/compat_php55x.php
- * @version            : **** - $release: 1.0 - $revision: 0 - $build: ****
+ * @version            : 1.1.3
  * @created            : 2013-12-31 23:59:59 GMT+2
- * @updated            : 2023-07-07 07:00:00 UTC+3
+ * @updated            : 2024-10-22 07:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  */
-
-
-// Εκτέλεση μόνο από το ASCOOS
-defined ("ALEXSOFT_RUN_CMS") or die("Prohibition of Access.");
 
 
 

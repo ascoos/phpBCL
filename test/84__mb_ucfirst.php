@@ -19,20 +19,17 @@
  * @package            : ASCOOS CMS - phpBCL
  * @subpackage         : Example mb_ucfirst Function
  * @source             : /phpBCL/test/84_mb_ucfirst.php
- * @version            : **** - $release: 1.0 - $revision: 5 - $build: ****
+ * @version            : 1.1.3
  * @created            : 2024-02-17 07:00:00 UTC+3
- * @updated            : 2024-02-20 03:00:00 UTC+3
+ * @updated            : 2024-10-22 07:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  * 
  * @since 5.6.40
  */
 
-define('ALEXSOFT_RUN_CMS', true);
 
-$cms_path = str_replace('/phpBCL/test', '',str_replace('\\', '/', __DIR__));
- 
-require_once($cms_path."/phpBCL/src/coreCompatibilities.php");
+require_once("../autoload.php");
 
 $str1 = "The quick brown fox jumps over the lazy dog";
 $str2 = "the quick brown fox jumps over the lazy dog";

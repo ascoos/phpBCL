@@ -19,20 +19,18 @@
  * @package            : ASCOOS CMS - phpBCL
  * @subpackage         : Example mb_trim, mb_ltrim, mb_rtrim Function
  * @source             : /phpBCL/test/84__mb_trim.php
- * @version            : **** - $release: 1.0 - $revision: 6 - $build: ****
+ * @version            : 1.1.3
  * @created            : 2024-02-20 03:00:00 UTC+3
- * @updated            : 2024-02-22 09:00:00 UTC+3
+ * @updated            : 2024-10-22 07:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  * 
  * @since 1.0.7
  */
 
-define('ALEXSOFT_RUN_CMS', true);
 
-$cms_path = str_replace('/phpBCL/test', '', str_replace('\\', '/', __DIR__));
- 
-require_once($cms_path."/phpBCL/src/coreCompatibilities.php");
+  
+ require_once("../autoload.php");
 
 // Example usage:
 $characters = " \f\n\r\t\v\x00\u{00A0}\u{1680}\u{2000}\u{2001}\u{2002}\u{2003}\u{2004}\u{2005}\u{2006}\u{2007}\u{2008}\u{2009}\u{200A}\u{2028}\u{2029}\u{202F}\u{205F}\u{3000}\u{0085}\u{180E}";

@@ -19,23 +19,20 @@
  * @package            : ASCOOS CMS - phpBCL
  * @subpackage         : Example array_any Function
  * @source             : /phpBCL/test/84_array_any.php
- * @version            : 1.1.2
+ * @version            : 1.1.3
  * @created            : 2024-10-04 07:00:00 UTC+3
- * @updated            : 
+ * @updated            : 2024-10-22 07:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  * 
  * @since 7.4
  */
 
-define('ALEXSOFT_RUN_CMS', true);
 
-$cms_path = str_replace('/phpBCL/test', '',str_replace('\\', '/', __DIR__));
-  
-require_once($cms_path."/phpBCL/src/coreCompatibilities.php");
+require_once("../autoload.php");
 
 // Since PHP >= 7.4
-if (version_compare(PHP_VERSION, '7.4.0', '>=')) {
+if ( version_compare(PHP_VERSION, '7.4.0', '>=') ) {
     array_any(['foo@example.com', 'https://www.example.com', 'foobar'], fn($value) => filter_var($value, FILTER_VALIDATE_URL),); // true
     array_any(['https://www.example.com', new stdClass()], fn($value) => filter_var($value, FILTER_VALIDATE_EMAIL),); // false
     array_any([1 => '', 'bar' => '', 'baz' => ''], fn($value, $key) => is_numeric($key),); // true

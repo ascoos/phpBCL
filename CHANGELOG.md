@@ -1,5 +1,39 @@
 # Changelog
 
+## 1.1.3 [2024-10-22]
+
+#### PHP < 8.4
+- Fixed Function `bcdivmod` for use in PHP < 7.2.0
+
+#### *phpBCL Core and Examples*
+- The examples have been changed to adapt to the new structure of the package.
+
+- Removed some source code from all files to make it more accessible to use of the package.
+
+ ```php
+// Run only Ascoos Cms
+define( 'ALEXSOFT_RUN_CMS', true ); //REMOVED
+```    
+and 
+
+```php
+// $cms_path is Ascoos Cms global variable
+require_once($cms_path."/phpBCL/src/coreCompatibilities.php"); // REMOVED
+```
+*They have been replaced with the internal variable $phpCBL of the package, which you do not need to call.*
+
+>You should load only the file `autoload.php` file into your code.
+
+```php
+$path = '[YOUR SITE PATH]';
+include $path . '/phpBCL/autoload.php'; / // For general use
+```
+OR
+```php
+include '../autoload.php'; // Used by phpBCL examples
+```
+
+---
 ## 1.1.2 [2024-10-04]
 
 - Updated README.md

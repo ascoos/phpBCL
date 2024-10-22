@@ -18,16 +18,17 @@
  *
  * @package            : ASCOOS CMS - phpBCL
  * @subpackage         : Core Class - Compatibilities Main Handler file
- * @source             : /phpBCL/coreCompatibilities.php
- * @version            : 1.0.8
+ * @source             : /phpBCL/src/coreCompatibilities.php
+ * @version            : 1.1.3
  * @created            : 2013-12-31 23:59:59 GMT+2
- * @updated            : 2024-02-27 07:00:00 UTC+3
+ * @updated            : 2024-10-22 07:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  */
 
-// Run on ASCOOS CMS only. Marked as comment if you want run this script with other cms.
-defined ("ALEXSOFT_RUN_CMS") or die("Prohibition of Access.");
+
+// Fixed phpBCL path
+ $phpBCL_path = str_replace('\\', '/', __DIR__); 
 
 
 /***********************************
@@ -36,7 +37,7 @@ defined ("ALEXSOFT_RUN_CMS") or die("Prohibition of Access.");
 /**
  * @since 1.0.8
  */
-require_once($cms_path."/phpBCL/src/compat/compat_error.php");
+require_once ($phpBCL_path . "/compat/compat_error.php");
 
 
 /*******************************
@@ -45,54 +46,54 @@ require_once($cms_path."/phpBCL/src/compat/compat_error.php");
 /**
  * @since 1.0.5
  */
-require_once($cms_path."/phpBCL/src/phpBCL.php");
+require_once($phpBCL_path."/phpBCL.php");
 
 
 /*********
  *  4.x
  ********/
 
-if (version_compare(PHP_VERSION, '4.3.0', '<')) require_once($cms_path."/phpBCL/src/compat/compat_php43x.php");
+if (version_compare(PHP_VERSION, '4.3.0', '<')) require_once($phpBCL_path."/compat/compat_php43x.php");
 
 
 /*********
  *  5.x
  ********/
-//if (version_compare(PHP_VERSION, '5.4.0', '<')) require_once($cms_path."/phpBCL/src/compat/compat_php54x.php");
-if (version_compare(PHP_VERSION, '5.5.0', '<')) require_once($cms_path."/phpBCL/src/compat/compat_php55x.php");
-//if (version_compare(PHP_VERSION, '5.6.0', '<')) require_once($cms_path."/phpBCL/src/compat/compat_php56x.php");
+//if (version_compare(PHP_VERSION, '5.4.0', '<')) require_once($phpBCL_path."/compat/compat_php54x.php");
+if (version_compare(PHP_VERSION, '5.5.0', '<')) require_once($phpBCL_path."/compat/compat_php55x.php");
+//if (version_compare(PHP_VERSION, '5.6.0', '<')) require_once($phpBCL_path."/compat/compat_php56x.php");
 
 
 /*********
  *  7.x
  ********/
-if (version_compare(PHP_VERSION, '7.0.0', '<')) require_once($cms_path."/phpBCL/src/compat/compat_php70x.php");
-if (version_compare(PHP_VERSION, '7.1.0', '<')) require_once($cms_path."/phpBCL/src/compat/compat_php71x.php");
-//if (version_compare(PHP_VERSION, '7.2.0', '<')) require_once($cms_path."/phpBCL/src/compat/compat_php72x.php");
-if (version_compare(PHP_VERSION, '7.3.0', '<')) require_once($cms_path."/phpBCL/src/compat/compat_php73x.php");
-if (version_compare(PHP_VERSION, '7.4.0', '<')) require_once($cms_path."/phpBCL/src/compat/compat_php74x.php");
+if (version_compare(PHP_VERSION, '7.0.0', '<')) require_once($phpBCL_path."/compat/compat_php70x.php");
+if (version_compare(PHP_VERSION, '7.1.0', '<')) require_once($phpBCL_path."/compat/compat_php71x.php");
+//if (version_compare(PHP_VERSION, '7.2.0', '<')) require_once($phpBCL_path."/compat/compat_php72x.php");
+if (version_compare(PHP_VERSION, '7.3.0', '<')) require_once($phpBCL_path."/compat/compat_php73x.php");
+if (version_compare(PHP_VERSION, '7.4.0', '<')) require_once($phpBCL_path."/compat/compat_php74x.php");
 
 
 /*********
  *  8.x
  ********/
-if (version_compare(PHP_VERSION, '8.0.0', '<')) require_once($cms_path."/phpBCL/src/compat/compat_php80x.php");
-if (version_compare(PHP_VERSION, '8.1.0', '<')) require_once($cms_path."/phpBCL/src/compat/compat_php81x.php");
-if (version_compare(PHP_VERSION, '8.2.0', '<')) require_once($cms_path."/phpBCL/src/compat/compat_php82x.php");
-if (version_compare(PHP_VERSION, '8.3.0', '<')) require_once($cms_path."/phpBCL/src/compat/compat_php83x.php");
-if (version_compare(PHP_VERSION, '8.4.0', '<')) require_once($cms_path."/phpBCL/src/compat/compat_php84x.php");
+if (version_compare(PHP_VERSION, '8.0.0', '<')) require_once($phpBCL_path."/compat/compat_php80x.php");
+if (version_compare(PHP_VERSION, '8.1.0', '<')) require_once($phpBCL_path."/compat/compat_php81x.php");
+if (version_compare(PHP_VERSION, '8.2.0', '<')) require_once($phpBCL_path."/compat/compat_php82x.php");
+if (version_compare(PHP_VERSION, '8.3.0', '<')) require_once($phpBCL_path."/compat/compat_php83x.php");
+if (version_compare(PHP_VERSION, '8.4.0', '<')) require_once($phpBCL_path."/compat/compat_php84x.php");
 
 
 /*************************
  * DEPRECATED OR REMOVED
  ************************/
-require_once($cms_path."/phpBCL/src/compat/compat_deprecated.php");
+require_once($phpBCL_path."/compat/compat_deprecated.php");
 
 
 /*******************************
  * SIMILAR CODE -- COMING SOON
  ******************************/
-require_once($cms_path."/phpBCL/src/compat/compat_similar.php");
+require_once($phpBCL_path."/compat/compat_similar.php");
 
-//unset($cms_path);
+//unset($phpBCL_path);
 ?>

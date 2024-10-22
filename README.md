@@ -2,9 +2,7 @@
 
 # PHP Backwards Compatibility Library (phpBCL)
 
-[![PHP Classes](https://img.shields.io/badge/php-classes-blue.svg)](https://www.phpclasses.org/package/12926.html) 
 ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/ascoos/phpbcl/total?color=%230E80C0) 
-
 ![GitHub Release](https://img.shields.io/github/v/release/ascoos/phpbcl) 
 ![GitHub Release Date](https://img.shields.io/github/release-date/ascoos/phpbcl?color=%230E80C0)
 ![GitHub repo size](https://img.shields.io/github/repo-size/ascoos/phpbcl) 
@@ -44,32 +42,26 @@ This is an open source project, open to anyone.
 
 Contributions are welcome [github](https://github.com/ascoos/phpBCL)
 
+
 ## Feedback
 
 Please send any feedback or suggestions to [@ascoos](https://twitter.com/ascoos) (Twitter) or [create an issue](https://github.com/ascoos/phpBCL/issues) on GitHub.
 
 ## License
 
-[`AGL-F` (ASCOOS General License - Free)](http://docs.ascoos.com/lics/ascoos/AGL-F.html)
+[![AGL-F](https://img.shields.io/badge/License-AGLF-blue.svg)](http://docs.ascoos.com/lics/ascoos/AGL-F.html)
 
 ***
-
-<br>
 
 ## Download
 
-1. [OFFICIAL ASCOOS DOWNLOAD SITE](https://dl.ascoos.com/pub/phpBCL/phpBCL-latest.zip)
-2. [GITHUB](https://github.com/ascoos/phpBCL/releases)
-3. [www.phpclasses.org](https://www.phpclasses.org/package/12926.html)
+[![OFFICIAL ASCOOS DOWNLOAD SITE](https://img.shields.io/website?url=https://dl.ascoos.com/pub/phpBCL)](https://dl.ascoos.com/pub/phpBCL/phpBCL-latest.zip) 
+[![PHP Classes](https://img.shields.io/badge/GitHub-phpBCL-blue.svg)](https://github.com/ascoos/phpBCL/releases) 
+[![PHP Classes](https://img.shields.io/badge/php-classes-blue.svg)](https://www.phpclasses.org/package/12926.html) 
+[![Sourceforge phpBCL](https://img.shields.io/badge/SourceForge-phpBCL-blue.svg)](https://sourceforge.net/projects/phpbcl/files/latest/download)
 
-[![Download phpBCL](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/phpbcl/files/latest/download)
-
-
-<br>
 
 ***
-
-<br>
 
 # Installation and use this library
 
@@ -77,10 +69,9 @@ Please send any feedback or suggestions to [@ascoos](https://twitter.com/ascoos)
 1. Unzip package in your working directory
 1. Add in index.php or master php file the below code :
 
-```
-if (!defined('ALEXSOFT_RUN_CMS')) define( 'ALEXSOFT_RUN_CMS', true );
-$cms_path = "FULL PATH";
-require_once($cms_path."/phpBCL/src/coreCompatibilities.php");
+```php
+$path = '[YOUR SITE PATH]';
+include $path . '/phpBCL/autoload.php';
 ```
 
 <br>

@@ -19,20 +19,17 @@
  * @package            : ASCOOS CMS - phpBCL
  * @subpackage         : Example bcdivmod Function
  * @source             : /phpBCL/test/84_bcdivmod.php
- * @version            : 1.1.2
+ * @version            : 1.1.3
  * @created            : 2024-10-04 07:00:00 UTC+3
- * @updated            : 
+ * @updated            : 2024-10-22 07:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  * 
  * @since 5.6.40
  */
 
- define('ALEXSOFT_RUN_CMS', true);
 
- $cms_path = str_replace('/phpBCL/test', '',str_replace('\\', '/', __DIR__));
-  
- require_once($cms_path."/phpBCL/src/coreCompatibilities.php");
+require_once("../autoload.php");
 
 print_r(bcdivmod("10", "10"));
 // ["1", "0"]
