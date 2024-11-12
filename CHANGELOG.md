@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.1.4 [2024-11-07]
+## 1.1.4 [2024-11-12]
 
 #### PHP < 8.4
 - Added Function `intltz_get_iana_id` -- Get the IANA identifier from a given timezone
