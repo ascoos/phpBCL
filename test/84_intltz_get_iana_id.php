@@ -17,11 +17,11 @@
  *************************************************************************************
  *
  * @package            : ASCOOS CMS - phpBCL
- * @subpackage         : Example grapheme_str_split Function
- * @source             : /phpBCL/test/84_grapheme_str_split.php
+ * @subpackage         : Example intltz_get_iana_id Function
+ * @source             : /phpBCL/test/84_intltz_get_iana_id.php
  * @version            : 1.1.4
- * @created            : 2024-10-04 07:00:00 UTC+3
- * @updated            : 2024-11-12 07:00:00 UTC+3
+ * @created            : 2024-11-12 07:00:00 UTC+3
+ * @updated            : 
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  * 
@@ -30,33 +30,21 @@
 
 
 require_once("../autoload.php");
- 
 
-function ArrayToString($array)
-{
-    return '["'.implode('", "',$array).'"]';
+if (extension_loaded('intl')) {
+    $iana_id1 = intltz_get_iana_id('Europe/Berlin'); // Valid, returns the same
+    // "Europe/Berlin"
+
+    $iana_id2 = intltz_get_iana_id('Mars'); // Invalid, returns false
+    // false
+
+    $iana_id3 = intltz_get_iana_id('Europe/Nicosia'); // Returns as Asia/Nicosia
+    // "Asia/Nicosia"
+} else {
+    echo "Not loaded intl extension";
+    exit;
 }
 
-$gss1 = ArrayToString(grapheme_str_split("PHP"));
- // ["P", "H", "P"]
- 
- $gss2 = ArrayToString(grapheme_str_split("你好"));
- // ["你", "好"]
- 
- $gss3 = ArrayToString(grapheme_str_split("你好", 4));
- // ["你好"]
- 
- $gss4 = ArrayToString(grapheme_str_split("สวัสดี"));
- // ["ส", "วั", "ส", "ดี"]
- 
- $gss5 = ArrayToString(grapheme_str_split("අයේෂ්"));
- // ["අ", "යේ", "ෂ්"]
- 
- $gss6 = ArrayToString(grapheme_str_split("👭🏻👰🏿‍♂️"));
- // ["👭🏻", "👰🏿‍♂️"]
-
- $gss7 = ArrayToString(grapheme_str_split("👭🏻👰🏿‍♂️", 2));
- // ["👭🏻", "👰🏿‍♂️"]
 ?>
 <html>
 <head>
@@ -68,15 +56,12 @@ $gss1 = ArrayToString(grapheme_str_split("PHP"));
 <body>
 <?php
 echo '<h1>PHP VERSION: '.phpversion().'</h1>';
-echo '<h2>TEST PHP 8.4 [ <b>grapheme_str_split</b> ] </h2>';
+echo '<h2>TEST PHP 8.4 [ <b>intltz_get_iana_id</b> ] </h2>';
 echo '<p><br></p>'; 
-echo '<p><b>grapheme_str_split("PHP")....:</b> '.$gss1.'</p>';
-echo '<p><b>grapheme_str_split("你好")....:</b> '.$gss2.'</p>';
-echo '<p><b>grapheme_str_split("你好", 4)....:</b> '.$gss3.'</p>';
-echo '<p><b>grapheme_str_split("สวัสดี")....:</b> '.$gss4.'</p>';
-echo '<p><b>grapheme_str_split("අයේෂ්")....:</b> '.$gss5.'</p>';
-echo '<p><b>grapheme_str_split("👭🏻👰🏿‍♂️")....:</b> '.$gss6.'</p>';
-echo '<p><b>grapheme_str_split("👭🏻👰🏿‍♂️",2)....:</b> '.$gss7.'</p>';
+
+echo '<p><b>intltz_get_iana_id [Europe/Berlin]....:</b> '.$iana_id1.'</p>';
+echo '<p><b>intltz_get_iana_id [Mars]...:</b> '.$iana_id2.'</p>';
+echo '<p><b>intltz_get_iana_id [Europe/Nicosia]....:</b> '.$iana_id3.'</p>';
 ?>
 </body>
 </html>

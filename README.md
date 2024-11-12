@@ -138,6 +138,7 @@ The contents of version-based files mean that since added to a specific PHP vers
 
 | A |    PHP   | phpBCL |   TYPE    |          NAME           |                DESCRIPTION
 |---|----------|--------|-----------|-------------------------|-----------------------------------------
+| + | < 8.4.0  | 1.1.4  | Function  | `intltz_get_iana_id`    | Get the IANA identifier from a given timezone
 | + | < 8.4.0  | 1.1.2  | Function  | `bcdivmod`              | Returns an array with the quotient (whole values) as a string, and the remainder as a string containing $scale number of decimal values.
 | + | < 8.4.0  | 1.1.1  | Function  | `grapheme_str_split`    | Splits a string into an array of individual or chunks of graphemes.
 | + | < 8.4.0  | 1.1.1  | Function  | `array_find`            | Returns the VALUE of the first element from $array for which the $callback returns true. Returns NULL if no matching element is found.

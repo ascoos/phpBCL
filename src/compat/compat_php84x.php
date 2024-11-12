@@ -19,9 +19,9 @@
  * @package            : ASCOOS CMS - phpBCL
  * @subpackage         : Core Compatibilities Manager for PHP < 8.4.0
  * @source             : /phpBCL/src/compat/compat_php84x.php
- * @version            : 1.1.3
+ * @version            : 1.1.4
  * @created            : 2024-02-14 05:40:00 UTC+3
- * @updated            : 2024-10-22 07:00:00 UTC+3
+ * @updated            : 2024-11-12 07:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  */
@@ -685,6 +685,43 @@ if (!function_exists('bcdivmod'))
                 bcmod($num1, $num2)
             ];            
         }
+    }
+}
+
+
+
+
+
+/**
+ * If the function [ intltz_get_iana_id ] does not exist then we create it.
+ * ++ 8.4.0 ---- https://php.watch/versions/8.4/bcdivmod
+ * 
+ * @since 1.1.4
+ */
+if (!function_exists('intltz_get_iana_id'))
+{
+    /**
+     * Get the IANA identifier from a given timezone
+     * 
+     * @param string $timezoneId
+     * @return string|false
+     */
+    function intltz_get_iana_id($timezoneId) 
+    {  
+        $return = IntlTimeZone::getCanonicalID($timezoneId);
+
+        if (is_bool($return))
+        {
+            return $return = ($return === true) ? 'True' : 'False';
+        } 
+        
+        switch ($return) 
+        {
+            case 'Europe/Nicosia': $return = 'Asia/Nicosia'; 
+            //default: $return = $timezoneId;
+        }
+    
+        return $return;
     }
 }
 
