@@ -130,7 +130,7 @@ This means that from the PHP version that refers and to newer versions, without 
 | + | >= 8.0.0  | 1.0.0  | Function  | `each`                  | Return the current key and value pair from an array and advance the array cursor.
 
 
-## VERSIONING FILES  [compat_php43x.php - compat_php84x.php]
+## VERSIONING FILES  [compat_php43x.php - compat_php85x.php]
 
 The contents of version-based files mean that since added to a specific PHP version, without using `phpBCL`, you will not be able to use them in older versions.
 
@@ -138,6 +138,7 @@ The contents of version-based files mean that since added to a specific PHP vers
 
 | A |    PHP   | phpBCL |   TYPE    |          NAME           |                DESCRIPTION
 |---|----------|--------|-----------|-------------------------|-----------------------------------------
+| + | < 8.5.0  | 2.0.0  | Constant  | `PHP_BUILD_DATE`        | that is assigned the time and date the PHP binary is built.
 | + | < 8.4.0  | 1.1.4  | Function  | `intltz_get_iana_id`    | Get the IANA identifier from a given timezone
 | + | < 8.4.0  | 1.1.2  | Function  | `bcdivmod`              | Returns an array with the quotient (whole values) as a string, and the remainder as a string containing $scale number of decimal values.
 | + | < 8.4.0  | 1.1.1  | Function  | `grapheme_str_split`    | Splits a string into an array of individual or chunks of graphemes.

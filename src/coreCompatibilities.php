@@ -30,6 +30,15 @@
 // Fixed phpBCL path
  $phpBCL_path = str_replace('\\', '/', __DIR__); 
 
+/***********************************
+ * Compatibility for Consts
+ **********************************/
+/**
+ * @since 2.0.0
+ */
+require_once($phpBCL_path."/compat/compat_consts.php");
+
+
 
 /***********************************
  * Compatibility for Error Classes
@@ -82,6 +91,7 @@ if (version_compare(PHP_VERSION, '8.1.0', '<')) require_once($phpBCL_path."/comp
 if (version_compare(PHP_VERSION, '8.2.0', '<')) require_once($phpBCL_path."/compat/compat_php82x.php");
 if (version_compare(PHP_VERSION, '8.3.0', '<')) require_once($phpBCL_path."/compat/compat_php83x.php");
 if (version_compare(PHP_VERSION, '8.4.0', '<')) require_once($phpBCL_path."/compat/compat_php84x.php");
+if (version_compare(PHP_VERSION, '8.5.0', '<')) require_once($phpBCL_path."/compat/compat_php85x.php");
 
 
 /*************************

@@ -19,16 +19,16 @@
  * @package            : ASCOOS CMS - phpBCL
  * @subpackage         : Core Compatibilities Manager for PHP < 8.4.0
  * @source             : /phpBCL/src/compat/compat_php84x.php
- * @version            : 1.1.4
+ * @version            : 2.0.0
  * @created            : 2024-02-14 05:40:00 UTC+3
- * @updated            : 2024-11-12 07:00:00 UTC+3
+ * @updated            : 2024-11-29 07:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  */
 
+
+
  
-
-
 /**
  * If the function [ mb_ucfirst ] does not exist then we create it.
  * ++ 8.4.0 ---- https://wiki.php.net/rfc/mb_ucfirst
@@ -621,7 +621,7 @@ if (!function_exists('grapheme_str_split'))
             $value = implode('', $value);
         });
 
-        return $chunks;
+        return (array) $chunks;
     }
 }
 
