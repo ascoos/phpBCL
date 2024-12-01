@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.1 [2024-12-01]
+
+### *phpBCL Core and Examples*
+-- Fixed composer.json file
+-- Fixed libin.json file
+
+---
+
 ## 2.0.0 [2024-11-29]
 
 ### *phpBCL Core and Examples*

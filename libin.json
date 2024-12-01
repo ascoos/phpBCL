@@ -2,7 +2,7 @@
     "libraries": [
         {
             "name": "phpBCL",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "copyright": [
                 {
                     "company": "AlexSoft Software",
@@ -20,7 +20,7 @@
                 "issues": "https://issues.ascoos.com",
                 "source": "https://github.com/ascoos/phpBCL"
             },            
-            "date": "2024-11-29",
+            "date": "2024-12-01",
             "description": "PHP Backwards Compatibility Library (phpBCL)",
             "license":"AGL-F (Ascoos General License - Free)",
             "homepage": "https://apps.ascoos.com/phpBCL",
@@ -35,7 +35,7 @@
                     "name":"afw",
                     "description":"Ascoos Framework 24",
                     "version":"24.0.2",
-                    "url":"https://github.com/ascoos/afw/releases/download/24.0.1/afw-24.0.1.zip"
+                    "url":"https://github.com/ascoos/afw/releases/download/24.0.2/afw-24.0.2.zip"
                 }
             ]
         }
