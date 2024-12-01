@@ -3,8 +3,8 @@
 ## 2.0.1 [2024-12-01]
 
 ### *phpBCL Core and Examples*
--- Fixed composer.json file
--- Fixed libin.json file
+- Fixed composer.json file
+- Fixed libin.json file
 
 ---
 
