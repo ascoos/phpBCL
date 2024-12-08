@@ -19,15 +19,20 @@
  * @package            : phpBCL
  * @subpackage         : Compatibilities Autoload file
  * @source             : /phpBCL/autoload.php
- * @version            : 1.1.3
+ * @version            : 2.0.2
  * @created            : 2024-10-22 07:00:00 UTC+3
- * @updated            : 
+ * @updated            : 2024-12-08 07:00:00 UTC+3
  * @author             : Drogidis Christos
  * @authorSite         : www.alexsoft.gr
  */
 
- $phpBCL_path = str_replace('\\', '/', __DIR__);
- 
- include $phpBCL_path . "/src/coreCompatibilities.php";
+ if (PHP_VERSION_ID < 50600) {
+    if (!headers_sent()) {
+        header('HTTP/1.1 500 Internal Server Error');
+    }
+ } else {
+    $phpBCL_path = str_replace('\\', '/', __DIR__);
+    include $phpBCL_path . "/src/coreCompatibilities.php";
+ }
 
  ?>
