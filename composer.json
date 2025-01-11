@@ -1,0 +1,50 @@
+{
+    "name": "ascoos/phpbcl",
+    "description": "PHP Backwards Compatibility Library (phpBCL).",
+    "version": "2.0.2",
+    "license":"AGL-F (Ascoos General License - Free)",
+    "homepage": "https://apps.ascoos.com/phpBCL",
+    "authors": [
+        {
+            "name": "Drogidis Christos",
+            "homepage": "https://www.ascoos.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://issues.ascoos.com",
+        "source": "https://github.com/ascoos/phpBCL"
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "ascoos/phpbcl",
+                "version": "2.0.2",
+                "type": "library",
+                "distributors": [
+                    {
+                        "url": "https://dl.ascoos.com/pub/phpBCL/phpBCL-latest.zip",
+                        "type": "zip"
+                    },
+                    {
+                        "url": "https://github.com/ascoos/phpBCL/releases/download/2.0.2/phpBCL-2.0.2.zip",
+                        "type": "zip"
+                    },
+                    {
+                        "url": "https://sourceforge.net/projects/phpbcl/files/latest/download",
+                        "type": "zip"
+                    }                    
+                ]
+            }
+        },
+        {
+            "type": "composer",
+            "url": "https://www.phpclasses.org/"
+        }          
+    ],
+    "require": {
+        "php": ">=5.6",
+        "phpclasses/phpbcl": ">=2.0.2"
+    }    
+}

@@ -1,0 +1,43 @@
+{
+    "libraries": [
+        {
+            "name": "phpBCL",
+            "version": "2.0.2",
+            "copyright": [
+                {
+                    "company": "AlexSoft Software",
+                    "homepage": "http://www.alexsoft.gr"
+                }                
+            ],
+            "authors": [
+                {
+                    "name": "Drogidis Christos",
+                    "homepage": "https://www.ascoos.com",
+                    "role": "Developer"
+                }
+            ],
+            "support": {
+                "issues": "https://issues.ascoos.com",
+                "source": "https://github.com/ascoos/phpBCL"
+            },            
+            "date": "2024-12-08",
+            "description": "PHP Backwards Compatibility Library (phpBCL)",
+            "license":"AGL-F (Ascoos General License - Free)",
+            "homepage": "https://apps.ascoos.com/phpBCL",
+            "auto_update_url": "https://dl.ascoos.com/pub/phpBCL/phpBCL-latest.zip",
+            "php_version_min": "50640",
+            "php_version_max": "80401",
+            "autoloads": [
+                {"0":"autoload.php"}
+            ],
+            "dependencies": [
+                {
+                    "name":"afw",
+                    "description":"Ascoos Framework 24",
+                    "version":"24.0.5",
+                    "url":"https://github.com/ascoos/afw/releases/download/24.0.5/afw-24.0.5.zip"
+                }
+            ]
+        }
+    ]
+}
